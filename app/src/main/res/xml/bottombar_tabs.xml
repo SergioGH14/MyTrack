@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs xmlns:android="http://schemas.android.com/apk/res/android">
+    <tab
+        id="@+id/tab_genres"
+        icon="@drawable/ic_genres"
+        title="Genres" />
+    <tab
+        id="@+id/tab_trending"
+        icon="@drawable/ic_local_movies"
+        title="Trending" />
+    <tab
+        id="@+id/tab_profile"
+        icon="@drawable/ic_profile"
+        title="Profile" />
+</tabs>

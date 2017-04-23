@@ -1,0 +1,75 @@
+<resources>
+    <string name="app_name">MyTrack</string>
+    <string name="title_lists">Categories</string>
+    <string name="title_discover">Films</string>
+    <string name="title_profile">Profile</string>
+    <string name="information">INFORMATION</string>
+    <string name="actors">ACTORS</string>
+    <string name="sinopsis">Sinopsis</string>
+    <string name="director">Director:</string>
+    <string name="estreno">Release Date:</string>
+    <string name="duracion">Duration:</string>
+    <string name="paises">Countries:</string>
+    <string name="idioma">Original Language:</string>
+    <string name="anyo">Year:</string>
+    <string name="genero">Gender:</string>
+    <string name="coleccion">Add to my collection...</string>
+    <string name="buscar">Search</string>
+    <string name="search_hint">Search...</string>
+    <string name="fav_add">Film add to favorites</string>
+
+
+    <!-- Strings Actividad de Listas -->
+    <string name="title_generos">TYPES</string>
+    <string name="title_topics">TOPICS</string>
+    <string name="title_infomovie">INFORMATION</string>
+    <string name="title_actorsmovie">ACTORS</string>
+
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string-array name="st1">
+        <item>H1</item>
+        <item>H2</item>
+        <item>H3</item>
+    </string-array>
+
+    <string name="title_activity_movie">MovieActivity</string>
+
+    <!-- String de Géneros -->
+
+    <string name="accion">Action</string>
+    <string name="aventura">Adventure</string>
+    <string name="animacion">Animation</string>
+    <string name="comedia">Comedy</string>
+    <string name="crimen">Crime</string>
+    <string name="documental">Documental</string>
+    <string name="drama">Drama</string>
+    <string name="fantasia">Fantasy</string>
+    <string name="historia">History</string>
+    <string name="miedo">Fear</string>
+    <string name="musical">Musical</string>
+    <string name="misterio">Mistery</string>
+    <string name="romance">Romance</string>
+    <string name="ficcion">Science Fiction</string>
+    <string name="thriller">Thriller</string>
+    <string name="guerra">War</string>
+    <string name="oeste">Western</string>
+
+    <!--Prueba -->
+    <string name="menu_item_call">Buscar</string>
+    <string name="menu_item_text">Trailer</string>
+    <string name="menu_item_email">Email</string>
+
+</resources>
