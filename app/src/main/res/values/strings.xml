@@ -17,6 +17,7 @@
     <string name="buscar">Search</string>
     <string name="search_hint">Search...</string>
     <string name="fav_add">Film add to favorites</string>
+    <string name="no_trailer">There is no trailer for this movie</string>
 
 
     <!-- Strings Actividad de Listas -->

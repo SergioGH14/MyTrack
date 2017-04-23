@@ -33,68 +33,61 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="198dp">
-
-                    <ImageView
-                        android:id="@+id/imageback"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="Movie image"
-                        android:scaleType="centerCrop"
-                        tools:background="#ddd" />
-
-                    <TextView
-                        android:id="@+id/title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_below="@+id/imageback"
-                        android:layout_toEndOf="@+id/image"
-                        android:ellipsize="end"
-                        android:fontFamily="sans-serif-condensed"
-                        android:maxLines="3"
-                        android:paddingLeft="4dp"
-                        android:paddingTop="4dp"
-                        tools:text="Original movie title" />
+                    android:layout_height="239dp">
 
                     <ImageView
                         android:id="@+id/image"
-                        android:layout_width="100dp"
-                        android:layout_height="150dp"
+                        android:layout_width="90dp"
+                        android:layout_height="130dp"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentStart="true"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
                         android:adjustViewBounds="true"
                         android:contentDescription="Movie poster"
                         android:elevation="5dp"
                         android:scaleType="centerCrop"
-                        tools:background="#ccc" />
+                        tools:background="#ccc"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="324dp" />
 
-                    <com.github.clans.fab.FloatingActionButton
-                        android:id="@+id/fabtrailer"
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
+                        android:layout_height="198dp">
 
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/ic_profile"
-                        app:fab_colorNormal="@color/colorPrimaryDark"
-                        app:fab_colorPressed="#BBDEFB"
-                        fab:fab_size="normal" />
+                        <android.support.constraint.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
+                            <LinearLayout
+                                android:layout_width="368dp"
+                                android:layout_height="182dp"
+                                android:orientation="vertical"
+                                tools:layout_editor_absoluteX="8dp"
+                                tools:layout_editor_absoluteY="251dp">
+
+                                <ImageView
+                                    android:id="@+id/imageback"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="182dp"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentTop="true"
+                                    android:adjustViewBounds="true"
+                                    android:contentDescription="Movie image"
+                                    android:scaleType="fitXY"
+                                    tools:background="#ddd"
+                                    tools:layout_editor_absoluteX="8dp"
+                                    tools:layout_editor_absoluteY="8dp" />
+                            </LinearLayout>
+
+                        </android.support.constraint.ConstraintLayout>
+
+                    </RelativeLayout>
                 </RelativeLayout>
 
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/card_trakt"
+                android:id="@+id/card_tmdb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/card_movie_overview"
@@ -102,29 +95,40 @@
                 android:background="#BBDEFB">
 
                 <LinearLayout
-                    android:id="@+id/layout_trakt"
+                    android:id="@+id/layout_tmdb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="35dp"
+                    android:layout_marginLeft="38dp"
                     android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"                        android:layout_alignParentStart="true"
-                        android:layout_gravity="left"
-                        android:layout_marginTop="5dp"
-                        fab:srcCompat="@drawable/ic_trakt" />
+                    <RelativeLayout
+                        android:layout_width="50dp"
+                        android:layout_height="35dp">
 
-                    <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left|center_vertical"
-                        android:paddingLeft="5dp"
-                        android:text="72 %"
-                        android:textAlignment="center" />
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentStart="false"
+                            android:layout_gravity="top|left|center_vertical"
+                            android:layout_marginTop="5dp"
+                            fab:srcCompat="@drawable/ic_tmdb" />
+
+                        <TextView
+                            android:id="@+id/tv_tmdb"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left|center_vertical|center_horizontal"
+                            android:layout_marginBottom="13dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:paddingLeft="5dp"
+                            android:textAlignment="center"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
 
                 </LinearLayout>
 
@@ -142,17 +146,16 @@
                     android:padding="10dp">
 
                     <TextView
-                        android:id="@+id/tv_title"
+                        android:id="@+id/Sinopsis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_marginBottom="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
+                        android:text="@string/sinopsis"
                         android:textStyle="bold" />
 
                     <TextView
@@ -190,7 +193,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:layout_marginLeft="7dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_weight="1" />
 
                     </LinearLayout>
@@ -219,7 +222,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:layout_marginLeft="7dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_weight="1"
                             android:textAlignment="textStart" />
 
@@ -248,7 +251,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:layout_marginLeft="7dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_weight="1" />
 
                     </LinearLayout>
@@ -276,7 +279,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
-                            android:layout_marginLeft="7dp"
+                            android:layout_marginLeft="10dp"
                             android:layout_weight="1" />
 
                     </LinearLayout>
@@ -304,13 +307,48 @@
                 android:id="@+id/fab1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_profile"
+                android:src="@drawable/ic_coleccion"
                 app:fab_colorNormal="@color/colorPrimaryDark"
                 app:fab_colorPressed="@color/colorPrimary"
                 fab:fab_label="@string/coleccion"
                 fab:fab_size="mini" />
 
         </com.github.clans.fab.FloatingActionMenu>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:layout_alignBottom="@+id/fabtrailer"
+            android:layout_alignEnd="@+id/fabtrailer"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="45dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-condensed"
+            android:maxLines="3"
+            android:paddingLeft="10dp"
+            android:textAlignment="textStart"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Original movie title" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fabtrailer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="245dp"
+            android:src="@drawable/ic_play"
+            app:fab_colorNormal="@color/colorPrimaryDark"
+            app:fab_colorPressed="#BBDEFB"
+            fab:fab_size="normal"
+            tools:layout_editor_absoluteX="13dp"
+            tools:layout_editor_absoluteY="324dp" />
 
     </RelativeLayout>
 

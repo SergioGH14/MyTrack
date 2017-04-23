@@ -15,8 +15,6 @@ import com.sdm.sergio.mytrack.task.MovieDiscoverReq;
 
 public class ActBottomNav extends AppCompatActivity{
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

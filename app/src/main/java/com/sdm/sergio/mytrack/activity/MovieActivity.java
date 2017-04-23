@@ -7,12 +7,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.github.clans.fab.FloatingActionMenu;
 import com.sdm.sergio.mytrack.R;
+import com.sdm.sergio.mytrack.model.Genre;
+import com.sdm.sergio.mytrack.model.ProductionCountry;
+import com.sdm.sergio.mytrack.model.SpokenLanguage;
 import com.sdm.sergio.mytrack.model.TMDBMovie;
 import com.sdm.sergio.mytrack.util.Storage;
+
+import java.util.List;
 
 public class MovieActivity extends AppCompatActivity {
 
@@ -64,7 +70,7 @@ public class MovieActivity extends AppCompatActivity {
 
         //TÍTULO
         TextView nombreMovie = (TextView) findViewById(R.id.title);
-        TextView tv_titulo = (TextView) findViewById(R.id.tv_title);
+        TextView tv_titulo = (TextView) findViewById(R.id.title);
         tv_titulo.setText(movie.getTitle());
         nombreMovie.setText(movie.getTitle());
 
@@ -83,7 +89,12 @@ public class MovieActivity extends AppCompatActivity {
         Glide.with(imagenMovie.getContext())
                 .load("https://image.tmdb.org/t/p/w500/"+movie.getBackdropPath())
                 .into(imagenMovieBack);
-        /*
+
+        //TMDBM nota
+        TextView tv_tmdb = (TextView) findViewById(R.id.tv_tmdb);
+        double tmdb_nota = movie.getVoteAverage();
+        tv_tmdb.setText(""+tmdb_nota);
+
         //PAÍSES
         TextView tv_paises = (TextView) findViewById(R.id.tv_paises);
         String paisesList = "";
@@ -91,9 +102,12 @@ public class MovieActivity extends AppCompatActivity {
         List<ProductionCountry> paises = movie.getProductionCountries();
         for (ProductionCountry pais: paises) {
 
-            paisesList = paisesList +", "+pais.getName();
+            if(paisesList.equals("")){
+                paisesList = paisesList + pais.getName();
+            }else {
+                paisesList = paisesList + ", " + pais.getName();
+            }
         }
-
         tv_paises.setText(paisesList);
 
         //GENEROS
@@ -104,15 +118,18 @@ public class MovieActivity extends AppCompatActivity {
         List<Genre> genres = movie.getGenres();
         for (Genre genre: genres) {
 
-            genresList = genresList +", "+genre.getName();
+            if(genresList.equals("")){
+                genresList = genresList + genre.getName();
+            }else {
+                genresList = genresList +", "+genre.getName();
+            }
         }
-
         tv_generos.setText(genresList);
-        */
+
         //FECHA DE ESTRENO
         TextView tv_estreno = (TextView) findViewById(R.id.tv_estreno);
         tv_estreno.setText(movie.getReleaseDate());
-        /*
+
         //IDIOMAS
         TextView tv_idiomas = (TextView) findViewById(R.id.tv_idiomaOrig);
 
@@ -121,11 +138,15 @@ public class MovieActivity extends AppCompatActivity {
         List<SpokenLanguage> idiomas = movie.getSpokenLanguages();
         for (SpokenLanguage idioma: idiomas) {
 
-            idiomasList = idiomasList +", "+idioma.getName();
-        }
+            if (idiomasList.equals("")) {
+                idiomasList = idiomasList + idioma.getName();
+            } else {
+                idiomasList = idiomasList + ", " + idioma.getName();
 
+            }
+        }
         tv_idiomas.setText(idiomasList);
-        */
+
 
     }
 
@@ -135,7 +156,7 @@ public class MovieActivity extends AppCompatActivity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.fab1:
-
+                    //Añadir a la colección personal
                     //Ocultar el menú
                     menuAdd.toggle(false);
                     break;
@@ -143,14 +164,21 @@ public class MovieActivity extends AppCompatActivity {
                 case R.id.fabtrailer:
 
                     //Abrir trailer en youtube
+                    if(movie.isVideo()){
 
-                    String videoUrl = "https://www.youtube.com/watch?v=FbvPuv6Amjg";
+                        //Cojo url del video
+                        String videoUrl = "https://www.youtube.com/watch?v=FbvPuv6Amjg";
 
-                    //Lanzar el intent para que se abra en youtube o internet
-                    String action = Intent.ACTION_VIEW;
-                    Uri uri = Uri.parse("https://www.youtube.com/watch?v=FbvPuv6Amjg");
-                    Intent videoIntent = new Intent(action, uri);
-                    startActivity(videoIntent);
+                        //Lanzar el intent para que se abra en youtube o internet
+                        String action = Intent.ACTION_VIEW;
+                        Uri uri = Uri.parse("https://www.youtube.com/watch?v=FbvPuv6Amjg");
+                        Intent videoIntent = new Intent(action, uri);
+                        startActivity(videoIntent);
+                        
+                    }
+                    else {
+                        Toast.makeText(MovieActivity.this, getString(R.string.no_trailer), Toast.LENGTH_SHORT).show();
+                    }
 
                     break;
             }
