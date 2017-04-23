@@ -1,11 +1,15 @@
 package com.sdm.sergio.mytrack.activity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.github.clans.fab.FloatingActionMenu;
 import com.sdm.sergio.mytrack.R;
 import com.sdm.sergio.mytrack.model.TMDBMovie;
 import com.sdm.sergio.mytrack.util.Storage;
@@ -14,12 +18,17 @@ public class MovieActivity extends AppCompatActivity {
 
     private TMDBMovie movie;
 
+    // Floating Buttons
+    private FloatingActionMenu menuAdd;
+    private com.github.clans.fab.FloatingActionButton fabtrailer;
+    private com.github.clans.fab.FloatingActionButton fab1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a_fullmovie);
-    // Cogemos la pelicula mediante la clase Storage gracias al id del Intent
+        // Cogemos la pelicula mediante la clase Storage gracias al id del Intent
         String id = getIntent().getStringExtra("id");
         movie = Storage.getInstance().extractFullMovie(id);
         //Rellenar datos de la película
@@ -27,7 +36,28 @@ public class MovieActivity extends AppCompatActivity {
         //Mostrar Home en Action bar y quitar el título
         /*getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
-        getSupportActionBar().hide();}
+        getSupportActionBar().hide();
+
+        //Floating Action Menu y Buttons
+        menuAdd = (FloatingActionMenu) findViewById(R.id.menu_add);
+
+        //Botón Añadir a favoritos
+        fab1 = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.fab1);
+        fab1.setOnClickListener(clickListener);
+
+        //Botón Tráiler
+        fabtrailer = (com.github.clans.fab.FloatingActionButton) findViewById(R.id.fabtrailer);
+        fabtrailer.setOnClickListener(clickListener);
+
+        //Mostrar el menú flotante
+        menuAdd.showMenuButton(true);
+
+        menuAdd.setOnMenuButtonClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                menuAdd.toggle(true);
+            }
+        });}
 
     //Rellenar datos película
     public void rellenarDatos(){
@@ -97,13 +127,34 @@ public class MovieActivity extends AppCompatActivity {
         tv_idiomas.setText(idiomasList);
         */
 
-
-
-
-
-
-
-
     }
+
+    //Acciones de los botones flotantes
+    private View.OnClickListener clickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.fab1:
+
+                    //Ocultar el menú
+                    menuAdd.toggle(false);
+                    break;
+
+                case R.id.fabtrailer:
+
+                    //Abrir trailer en youtube
+
+                    String videoUrl = "https://www.youtube.com/watch?v=FbvPuv6Amjg";
+
+                    //Lanzar el intent para que se abra en youtube o internet
+                    String action = Intent.ACTION_VIEW;
+                    Uri uri = Uri.parse("https://www.youtube.com/watch?v=FbvPuv6Amjg");
+                    Intent videoIntent = new Intent(action, uri);
+                    startActivity(videoIntent);
+
+                    break;
+            }
+        }
+    };
 
 }
