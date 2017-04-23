@@ -4,11 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:padding="5dp"
+        android:src="@drawable/ic_accion" />
+
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:text="Infantil" />
+        android:id="@+id/text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:text="Género"
+        android:textColor="#000"
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 </LinearLayout>
