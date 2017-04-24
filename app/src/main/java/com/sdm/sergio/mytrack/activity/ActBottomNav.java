@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -27,10 +28,14 @@ public class ActBottomNav extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+
+        // Toolbar que hace de action Bar
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        // Cambiar la Toolbar para que haga de ActionBar
+        setSupportActionBar(toolbar);
+
         //Inicializamos la BBDD
         Storage.StorageInit(getApplicationContext());
-
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimaryDark)));
 
         final BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
 
@@ -46,16 +51,15 @@ public class ActBottomNav extends AppCompatActivity{
                     context = FragmentGenres.newInstance();
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.contentContainer,context);
-                    //Cambiar título del action bar a géneros
-                    getSupportActionBar().setTitle(R.string.title_generos);
+                    getSupportActionBar().hide();
                     transaction.commit();
                 }
                 if (tabId == R.id.tab_trending) {
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     context = FragmentSpinner.newInstance();
                     transaction.replace(R.id.contentContainer,context);
-                    //Cambiar título del action bar a Título App
-                    getSupportActionBar().setTitle(R.string.app_name);
+                    getSupportActionBar().show();
+
                     transaction.commit();
                     transaction = getSupportFragmentManager().beginTransaction();
                     MovieDiscoverReq task = new MovieDiscoverReq(transaction);
@@ -67,7 +71,7 @@ public class ActBottomNav extends AppCompatActivity{
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.contentContainer,context);
                     //Cambiar título del action bar a Perfil
-                    getSupportActionBar().setTitle(R.string.title_profile);
+
                     transaction.commit();
                 }
 
@@ -85,6 +89,7 @@ public class ActBottomNav extends AppCompatActivity{
         // Item Buscar Película
         final MenuItem searchItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        searchItem.setIcon(R.drawable.ic_buscar);
 
         //El hint que el EditText muestra por defecto
         searchView.setQueryHint(getText(R.string.search_hint));

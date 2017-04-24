@@ -45,10 +45,6 @@ public class MovieActivity extends AppCompatActivity {
         movie = Storage.getInstance().extractFullMovie(id);
         //Rellenar datos de la película
         rellenarDatos();
-        //Mostrar Home en Action bar y quitar el título
-        /*getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
-        getSupportActionBar().hide();
 
         //Floating Action Menu y Buttons
         menuAdd = (FloatingActionMenu) findViewById(R.id.menu_add);

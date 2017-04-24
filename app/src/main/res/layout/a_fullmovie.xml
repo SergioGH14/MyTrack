@@ -29,7 +29,8 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginLeft="0dp"
-                android:layout_marginRight="0dp">
+                android:layout_marginRight="0dp"
+                app:cardBackgroundColor="@android:color/white">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -48,8 +49,7 @@
                         android:scaleType="centerCrop"
                         tools:background="#ccc"
                         tools:layout_editor_absoluteX="0dp"
-                        tools:layout_editor_absoluteY="324dp"
-                        />
+                        tools:layout_editor_absoluteY="324dp" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -91,7 +91,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/card_movie_overview"
                 android:layout_centerHorizontal="true"
-                android:background="#BBDEFB">
+                android:background="#BBDEFB"
+                app:cardBackgroundColor="@android:color/white">
 
                 <LinearLayout
                     android:id="@+id/layout_tmdb"
@@ -125,6 +126,7 @@
                             android:layout_weight="1"
                             android:paddingLeft="5dp"
                             android:textAlignment="center"
+                            android:textColor="@color/bb_inActiveBottomBarItemColor"
                             android:textStyle="bold" />
 
                     </RelativeLayout>
@@ -135,7 +137,8 @@
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@android:color/white">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -155,6 +158,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
                         android:text="@string/sinopsis"
+                        android:textColor="@color/bb_inActiveBottomBarItemColor"
                         android:textStyle="bold" />
 
                     <TextView
@@ -167,14 +171,14 @@
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:textAlignment="textStart" />
+                        android:textAlignment="textStart"
+                        android:textColor="@color/bb_inActiveBottomBarItemColor" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:orientation="vertical"
-                        >
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/duracion_title"
@@ -187,6 +191,7 @@
                             android:layout_marginTop="10dp"
                             android:layout_weight="1"
                             android:text="@string/duracion"
+                            android:textColor="@color/bb_inActiveBottomBarItemColor"
                             android:textStyle="bold" />
 
                         <TextView
@@ -195,7 +200,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
-                            android:layout_weight="1" />
+                            android:layout_weight="1"
+                            android:textColor="@color/bb_inActiveBottomBarItemColor" />
 
                     </LinearLayout>
 
@@ -214,6 +220,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_weight="1"
                             android:text="@string/estreno"
+                            android:textColor="@color/bb_inActiveBottomBarItemColor"
                             android:textStyle="bold" />
 
                         <TextView
@@ -222,7 +229,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
-                            android:layout_weight="1" />
+                            android:layout_weight="1"
+                            android:textColor="@color/bb_inActiveBottomBarItemColor" />
 
                     </LinearLayout>
 
@@ -243,6 +251,7 @@
                             android:layout_weight="1"
                             android:text="@string/paises"
                             android:textAlignment="textStart"
+                            android:textColor="@color/bb_inActiveBottomBarItemColor"
                             android:textStyle="bold" />
 
                         <TextView
@@ -252,7 +261,8 @@
                             android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_weight="1"
-                            android:textAlignment="textStart" />
+                            android:textAlignment="textStart"
+                            android:textColor="@color/bb_inActiveBottomBarItemColor" />
 
                     </LinearLayout>
 
@@ -272,6 +282,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_weight="1"
                             android:text="@string/genero"
+                            android:textColor="@color/bb_inActiveBottomBarItemColor"
                             android:textStyle="bold" />
 
                         <TextView
@@ -280,7 +291,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
-                            android:layout_weight="1" />
+                            android:layout_weight="1"
+                            android:textColor="@color/bb_inActiveBottomBarItemColor" />
 
                     </LinearLayout>
 
@@ -300,6 +312,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_weight="1"
                             android:text="@string/idioma"
+                            android:textColor="@color/bb_inActiveBottomBarItemColor"
                             android:textStyle="bold" />
 
                         <TextView
@@ -308,7 +321,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
-                            android:layout_weight="1" />
+                            android:layout_weight="1"
+                            android:textColor="@color/bb_inActiveBottomBarItemColor" />
 
                     </LinearLayout>
 
@@ -328,6 +342,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_weight="1"
                             android:text="@string/presupuesto"
+                            android:textColor="@color/bb_inActiveBottomBarItemColor"
                             android:textStyle="bold" />
 
                         <TextView
@@ -336,7 +351,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
-                            android:layout_weight="1" />
+                            android:layout_weight="1"
+                            android:textColor="@color/bb_inActiveBottomBarItemColor" />
 
                     </LinearLayout>
 
@@ -356,6 +372,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_weight="1"
                             android:text="@string/ingresos"
+                            android:textColor="@color/bb_inActiveBottomBarItemColor"
                             android:textStyle="bold" />
 
                         <TextView
@@ -364,7 +381,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
-                            android:layout_weight="1" />
+                            android:layout_weight="1"
+                            android:textColor="@color/bb_inActiveBottomBarItemColor" />
 
                     </LinearLayout>
 
@@ -413,6 +431,7 @@
             android:maxLines="3"
             android:paddingLeft="10dp"
             android:textAlignment="textStart"
+            android:textColor="@color/bb_inActiveBottomBarItemColor"
             android:textSize="18sp"
             android:textStyle="bold"
             tools:text="Original movie title" />
