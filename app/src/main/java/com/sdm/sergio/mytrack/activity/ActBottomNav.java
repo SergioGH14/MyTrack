@@ -58,7 +58,7 @@ public class ActBottomNav extends AppCompatActivity{
                     context = FragmentSpinner.newInstance();
                     transaction.replace(R.id.contentContainer,context);
                     //Cambiar título del action bar a Título App
-                    getSupportActionBar().setTitle(R.string.title_discover);
+                    getSupportActionBar().setTitle(R.string.app_name);
                     transaction.commit();
                     transaction = getSupportFragmentManager().beginTransaction();
                     MovieDiscoverReq task = new MovieDiscoverReq(transaction);

@@ -6,8 +6,8 @@
     <ListView
         android:id="@+id/custom_listview_genres"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:columnWidth="120dp"
+        android:layout_height="wrap_content"
+        android:columnWidth="100dp"
         android:numColumns="3"
         android:divider="@color/colorIcons"/>
 

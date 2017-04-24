@@ -438,7 +438,7 @@
             android:id="@+id/shadow_button_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="14dp"
+            android:layout_marginLeft="12dp"
             android:layout_marginTop="3dp"
             android:layout_toStartOf="@+id/title"
             android:background="@android:color/transparent"
