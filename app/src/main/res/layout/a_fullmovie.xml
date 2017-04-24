@@ -36,21 +36,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="239dp">
 
-                    <ImageView
-                        android:id="@+id/image"
-                        android:layout_width="90dp"
-                        android:layout_height="130dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_alignParentStart="true"
-                        android:layout_marginLeft="16dp"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="Movie poster"
-                        android:elevation="5dp"
-                        android:scaleType="centerCrop"
-                        tools:background="#ccc"
-                        tools:layout_editor_absoluteX="0dp"
-                        tools:layout_editor_absoluteY="324dp" />
-
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="198dp">
@@ -400,10 +385,10 @@
             android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="89dp"
             app:menu_colorNormal="@color/colorPrimaryDark"
-            app:menu_colorPressed="@color/colorPrimary">
+            app:menu_colorPressed="@color/colorPrimary"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="89dp">
 
             <com.github.clans.fab.FloatingActionButton
                 android:id="@+id/fab1"
@@ -417,51 +402,20 @@
 
         </com.github.clans.fab.FloatingActionMenu>
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="250dp"
-            android:layout_height="70dp"
-            android:layout_alignBottom="@+id/fabtrailer"
-            android:layout_alignEnd="@+id/fabtrailer"
-            android:layout_gravity="center_vertical"
-            android:layout_marginBottom="45dp"
-            android:layout_weight="1"
-            android:ellipsize="end"
-            android:fontFamily="sans-serif-condensed"
-            android:maxLines="3"
-            android:paddingLeft="10dp"
-            android:textAlignment="textStart"
-            android:textColor="@color/bb_inActiveBottomBarItemColor"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:text="Original movie title" />
-
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/fabtrailer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="245dp"
             android:src="@drawable/ic_play"
             app:fab_colorNormal="@color/colorPrimaryDark"
             app:fab_colorPressed="#BBDEFB"
             fab:fab_size="normal"
             tools:layout_editor_absoluteX="13dp"
-            tools:layout_editor_absoluteY="324dp" />
-
-        <Button
-            android:id="@+id/shadow_button_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginTop="3dp"
-            android:layout_toStartOf="@+id/title"
-            android:background="@android:color/transparent"
-            android:drawableLeft="@drawable/ic_shadow_back" />
+            tools:layout_editor_absoluteY="324dp"
+            android:layout_below="@+id/tv_adulto"
+            android:layout_alignParentEnd="true" />
 
         <Button
             android:id="@+id/button_back"
@@ -471,18 +425,53 @@
             android:background="@android:color/transparent"
             android:drawableLeft="@drawable/ic_back" />
 
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="90dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="55dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="Movie poster"
+            android:elevation="5dp"
+            android:scaleType="centerCrop"
+            tools:background="#ccc"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="324dp"
+            android:layout_below="@+id/button_back"
+            android:layout_alignStart="@+id/button_back" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/image"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="10dp"
+            android:layout_toEndOf="@+id/image"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-condensed"
+            android:maxLines="3"
+            android:paddingLeft="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/bb_inActiveBottomBarItemColor"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Original movie title" />
+
         <TextView
             android:id="@+id/tv_adulto"
             android:layout_width="50dp"
             android:layout_height="30dp"
+            android:layout_alignBottom="@+id/title"
+            android:layout_marginBottom="53dp"
             android:textColor="@android:color/holo_red_dark"
             android:textStyle="bold"
-            android:layout_alignBottom="@+id/title"
-            android:layout_alignEnd="@+id/title"
-            android:layout_marginBottom="53dp" />
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
-
 
 
 </LinearLayout>
