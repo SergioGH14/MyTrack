@@ -3,7 +3,8 @@
     package="com.sdm.sergio.mytrack">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCES_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:allowBackup="true"
@@ -21,6 +22,8 @@
         </activity>
         <activity android:name=".activity.MovieActivity" />
         <activity android:name=".activity.MovieGridGenreActivity"></activity>
+        <activity android:name=".activity.ProfileActibity"></activity>
+        <activity android:name=".activity.RegistreActivity"></activity>
 
     </application>
 
