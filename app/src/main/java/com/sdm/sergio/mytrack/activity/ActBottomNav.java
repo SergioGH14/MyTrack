@@ -52,6 +52,7 @@ public class ActBottomNav extends AppCompatActivity{
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.contentContainer,context);
                     getSupportActionBar().hide();
+                    getSupportActionBar().setTitle(R.string.title_generos);
                     transaction.commit();
                 }
                 if (tabId == R.id.tab_trending) {
@@ -59,6 +60,7 @@ public class ActBottomNav extends AppCompatActivity{
                     context = FragmentSpinner.newInstance();
                     transaction.replace(R.id.contentContainer,context);
                     getSupportActionBar().show();
+                    getSupportActionBar().setTitle(R.string.title_discover);
 
                     transaction.commit();
                     transaction = getSupportFragmentManager().beginTransaction();

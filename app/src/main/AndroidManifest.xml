@@ -3,7 +3,7 @@
     package="com.sdm.sergio.mytrack">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCES_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCES_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,14 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.ActBottomNav">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MovieActivity"></activity>
+        <activity android:name=".activity.MovieActivity" />
+        <activity android:name=".activity.MovieGridGenreActivity"></activity>
     </application>
 
 </manifest>
