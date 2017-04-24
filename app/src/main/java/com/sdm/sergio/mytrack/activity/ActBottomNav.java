@@ -1,13 +1,10 @@
 package com.sdm.sergio.mytrack.activity;
 
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
@@ -21,10 +18,8 @@ import com.sdm.sergio.mytrack.R;
 import com.sdm.sergio.mytrack.fragment.FragmentGenres;
 import com.sdm.sergio.mytrack.fragment.FragmentProfile;
 import com.sdm.sergio.mytrack.fragment.FragmentSpinner;
-import com.sdm.sergio.mytrack.fragment.FragmentTrending;
 import com.sdm.sergio.mytrack.task.MovieDiscoverReq;
-
-import static com.sdm.sergio.mytrack.R.id.bottomBar;
+import com.sdm.sergio.mytrack.util.Storage;
 
 public class ActBottomNav extends AppCompatActivity{
 
@@ -32,6 +27,8 @@ public class ActBottomNav extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+        //Inicializamos la BBDD
+        Storage.StorageInit(getApplicationContext());
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimaryDark)));
 

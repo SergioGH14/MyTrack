@@ -96,18 +96,33 @@ public class TMDBMovieSQLHelper extends SQLiteOpenHelper{
     /*
         Insert a new quotation into the database
     */
-    public void addTMDBMovie(int  id, String TMDBMovieSTRING) {
+        public void addTMDBMovie(int  id, String TMDBMovieSTRING) {
+            //Preparacion de los argumentos de la preconsulta
+            Integer iden = new Integer(id);
+            String identificador = iden.toString();
+            String[] args = new String[] {identificador};
+            // Get access to the database in write mode
+            SQLiteDatabase database = getWritableDatabase();
 
-        // Get access to the database in write mode
-        SQLiteDatabase database = getWritableDatabase();
-        // Insert the new TMDBMovie into the table
-        ContentValues values = new ContentValues();
-        values.put("id", id);
-        values.put("TMDBMovie", TMDBMovieSTRING);
-        database.insert("TMDBMovieTable", null, values);
-        // Close the database helper
-        database.close();
-    }
+            //Acceso a la db para hacer preconsulta
+            SQLiteDatabase database_pre = getReadableDatabase();
+            // Insert the new TMDBMovie into the table
+            ContentValues values = new ContentValues();
+            values.put("id", id);
+            values.put("TMDBMovie", TMDBMovieSTRING);
+            //Comprobacion antes de insertar si existe
+            Cursor cursor = database_pre.query(
+                    "TMDBMovieTable", new String[]{"TMDBMovie"}, "id=?", args, null, null, null);
+            if(!cursor.moveToFirst()){
+                database.insert("TMDBMovieTable", null, values);
+            }
+
+            //Cerra el cursor
+            cursor.close();
+            // Close the database helper
+            database.close();
+            database_pre.close();
+        }
 
     /*
         Delete a given quotation from the database

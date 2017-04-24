@@ -1,8 +1,13 @@
 package com.sdm.sergio.mytrack.util;
 
+import android.content.Context;
+
 import com.sdm.sergio.mytrack.model.InfoMovie;
 import com.sdm.sergio.mytrack.model.TMDBMovie;
 
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 
 /**
@@ -12,14 +17,15 @@ import java.util.HashMap;
 public class Storage {
     private static Storage instance;
     private InfoMovie[] discover;
+    private Context context;
     private HashMap<String,TMDBMovie> fullmovies = new HashMap<String, TMDBMovie>();
 
 
-    private Storage(){}
+    private Storage(Context context){this.context=context;}
+
+    public static void StorageInit(Context context){instance=  new Storage(context);}
 
     public static Storage getInstance(){
-        if(instance==null)
-            instance=  new Storage();
          return instance;
     }
 
@@ -29,7 +35,24 @@ public class Storage {
     public void setDiscover(InfoMovie[] discover) {
         this.discover = discover;
     }
-    public void addFullMovie(String id, TMDBMovie fullmovie){fullmovies.put(id,fullmovie);}
-    public TMDBMovie extractFullMovie(String id){return fullmovies.get(id);}
+
+    public void addFullMovie(String id, TMDBMovie fullmovie, InputStreamReader reader)throws UnsupportedEncodingException, IOException {
+        fullmovies.put(id,fullmovie);
+
+        String json = org.apache.commons.io.IOUtils.toString(reader);
+
+        TMDBMovieSQLHelper.getInstance(context).addTMDBMovie(Integer.parseInt(id),json);}
+
+    public TMDBMovie extractFullMovie(String id){
+        if(fullmovies.get(id)!=null){
+            return fullmovies.get(id);}
+        else{
+
+            TMDBMovie aux = TMDBMovieSQLHelper.getInstance(context).getTMDBMovie(Integer.parseInt(id));
+
+            if(aux!=null)
+                return aux;
+        }
+        return null;}
 
 }

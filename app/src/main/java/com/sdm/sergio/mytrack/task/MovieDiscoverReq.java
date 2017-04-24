@@ -46,7 +46,7 @@ public class MovieDiscoverReq extends AsyncTask<Void,Void,Void> {
             builder.scheme("https");
             builder.authority("api.trakt.tv");
             builder.appendPath("movies");
-            builder.appendPath("trending");
+            builder.appendPath("boxoffice");
             URL url = new URL(builder.build().toString());
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
@@ -95,7 +95,7 @@ public class MovieDiscoverReq extends AsyncTask<Void,Void,Void> {
                             Gson gson2 = gbuilder.create();
                             fullmovie = gson2.fromJson(reader2, TMDBMovie.class);
                             imovie[i].getMovie().setFullmovie(fullmovie);
-                            Storage.getInstance().addFullMovie(""+fullmovie.getId(),fullmovie);
+                            Storage.getInstance().addFullMovie(""+fullmovie.getId(),fullmovie,reader2);
                             connection.disconnect();
                         }
                     } catch (JsonParseException e) {
