@@ -57,6 +57,8 @@ public class ActBottomNav extends AppCompatActivity{
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     context = FragmentSpinner.newInstance();
                     transaction.replace(R.id.contentContainer,context);
+                    //Cambiar título del action bar a Título App
+                    getSupportActionBar().setTitle(R.string.title_discover);
                     transaction.commit();
                     transaction = getSupportFragmentManager().beginTransaction();
                     MovieDiscoverReq task = new MovieDiscoverReq(transaction);
@@ -67,6 +69,8 @@ public class ActBottomNav extends AppCompatActivity{
                     context = FragmentProfile.newInstance();
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.contentContainer,context);
+                    //Cambiar título del action bar a Perfil
+                    getSupportActionBar().setTitle(R.string.title_profile);
                     transaction.commit();
                 }
 
