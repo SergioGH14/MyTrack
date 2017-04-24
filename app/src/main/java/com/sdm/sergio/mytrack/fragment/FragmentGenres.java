@@ -82,9 +82,6 @@ public class FragmentGenres extends android.support.v4.app.Fragment{
                 //Para que cuando pulses en un género no se note ningún color, salía amarillo
                 listView.setBackgroundColor(getResources().getColor(R.color.colorIcons));
 
-                //Cambiar título del action bar por el género
-                getActivity().setTitle(itemGenreList[position]);
-
                 String genero = itemGenreList[position];
 
                 //Pasar el género a la pantalla de grid de películas por género

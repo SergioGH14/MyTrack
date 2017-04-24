@@ -34,8 +34,6 @@ public class MovieGridGenreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a_movie_grid_genre);
 
-        //Mostrar ActionBar
-        getSupportActionBar().show();
 
         //Flecha de Back de la action Bar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -48,6 +46,9 @@ public class MovieGridGenreActivity extends AppCompatActivity {
 
         //Poner el titulo del género al toolbar
         getSupportActionBar().setTitle(genero);
+
+        //Mostrar ActionBar
+        getSupportActionBar().show();
 
     }
 
