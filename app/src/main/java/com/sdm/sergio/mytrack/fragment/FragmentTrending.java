@@ -45,7 +45,7 @@ public class FragmentTrending extends android.support.v4.app.Fragment{
 
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                    public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
                 //Objeto con la Información de la película, se cambiará por lo que tengamos de Trakt
                 Movie item = (Movie) parent.getItemAtPosition(position);

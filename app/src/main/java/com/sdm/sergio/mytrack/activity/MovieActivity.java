@@ -40,6 +40,10 @@ public class MovieActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a_fullmovie);
+
+        //Quitar Action Bar
+        getSupportActionBar().hide();
+
         // Cogemos la pelicula mediante la clase Storage gracias al id del Intent
         String id = getIntent().getStringExtra("id");
         movie = Storage.getInstance().extractFullMovie(id);

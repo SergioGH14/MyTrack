@@ -5,18 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_genres"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:fitsSystemWindows="true"
-        android:minHeight="?attr/actionBarSize"
-        app:title="@string/title_generos"
-        app:titleTextColor="@android:color/white">
-
-    </android.support.v7.widget.Toolbar>
-
 
     <ListView
         android:id="@+id/custom_listview_genres"

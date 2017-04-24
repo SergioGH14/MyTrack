@@ -1,8 +1,10 @@
 package com.sdm.sergio.mytrack.activity;
 
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +21,7 @@ import com.sdm.sergio.mytrack.R;
 import com.sdm.sergio.mytrack.fragment.FragmentGenres;
 import com.sdm.sergio.mytrack.fragment.FragmentProfile;
 import com.sdm.sergio.mytrack.fragment.FragmentSpinner;
+import com.sdm.sergio.mytrack.fragment.FragmentTrending;
 import com.sdm.sergio.mytrack.task.MovieDiscoverReq;
 import com.sdm.sergio.mytrack.util.Storage;
 
@@ -29,10 +32,7 @@ public class ActBottomNav extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-        // Toolbar que hace de action Bar
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        // Cambiar la Toolbar para que haga de ActionBar
-        setSupportActionBar(toolbar);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimaryDark)));
 
         //Inicializamos la BBDD
         Storage.StorageInit(getApplicationContext());
@@ -51,16 +51,16 @@ public class ActBottomNav extends AppCompatActivity{
                     context = FragmentGenres.newInstance();
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.contentContainer,context);
-                    getSupportActionBar().hide();
                     getSupportActionBar().setTitle(R.string.title_generos);
+
                     transaction.commit();
                 }
                 if (tabId == R.id.tab_trending) {
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     context = FragmentSpinner.newInstance();
                     transaction.replace(R.id.contentContainer,context);
-                    getSupportActionBar().show();
-                    getSupportActionBar().setTitle(R.string.title_discover);
+                    getSupportActionBar().setTitle(R.string.app_name);
+
 
                     transaction.commit();
                     transaction = getSupportFragmentManager().beginTransaction();
@@ -73,7 +73,7 @@ public class ActBottomNav extends AppCompatActivity{
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.contentContainer,context);
                     //Cambiar título del action bar a Perfil
-
+                    getSupportActionBar().setTitle(R.string.title_profile);
                     transaction.commit();
                 }
 
@@ -93,6 +93,15 @@ public class ActBottomNav extends AppCompatActivity{
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         searchItem.setIcon(R.drawable.ic_buscar);
 
+        //Quitar buscar si estoy en el fragment de géneros
+        //int idFrag = fragmentoActual.getId();
+        /*if(idFrag == getSupportFragmentManager().findFragmentByTag("")){
+            searchItem.setVisible(false);
+        }
+        else{
+            searchItem.setVisible(true);
+        }*/
+
         //El hint que el EditText muestra por defecto
         searchView.setQueryHint(getText(R.string.search_hint));
 
@@ -103,7 +112,7 @@ public class ActBottomNav extends AppCompatActivity{
             @Override
             //Al pulsar intro en el teclado
             public boolean onQueryTextSubmit(String query) {
-                Toast.makeText(ActBottomNav.this, R.string.animacion, Toast.LENGTH_SHORT).show();
+
                 //Ocultar el EditText
                 searchView.setQuery("", false);
                 searchView.setIconified(true);

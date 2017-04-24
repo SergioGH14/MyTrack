@@ -1,6 +1,9 @@
 package com.sdm.sergio.mytrack.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +20,8 @@ import android.widget.Toast;
 import com.sdm.sergio.mytrack.R;
 import com.sdm.sergio.mytrack.adapter.GenreListAdapter;
 import com.sdm.sergio.mytrack.adapter.GridMovieAdapter;
+import com.sdm.sergio.mytrack.fragment.FragmentGenres;
+import com.sdm.sergio.mytrack.model.Movie;
 import com.sdm.sergio.mytrack.util.Storage;
 
 public class MovieGridGenreActivity extends AppCompatActivity {
@@ -29,10 +34,14 @@ public class MovieGridGenreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a_movie_grid_genre);
 
-        // Toolbar que hace de action Bar
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_genre_movies);
-        // Cambiar la Toolbar para que haga de ActionBar
-        setSupportActionBar(toolbar);
+        //Mostrar ActionBar
+        getSupportActionBar().show();
+
+        //Flecha de Back de la action Bar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //Color a la Action Bar
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimaryDark)));
 
         // Cogemos el genero que nos pasa la pantalla de listView de géneros
         String genero = getIntent().getStringExtra("genero");
@@ -41,6 +50,7 @@ public class MovieGridGenreActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(genero);
 
     }
+
 
     public boolean onCreateOptionsMenu(Menu menu) //Enlazar el menu
     {
@@ -51,6 +61,23 @@ public class MovieGridGenreActivity extends AppCompatActivity {
         adaptador = new GridMovieAdapter(Storage.getInstance().getDiscover(),this);
         GridView gridView = (GridView) findViewById(R.id.grid);
         gridView.setAdapter(adaptador);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+
+                //Objeto con la Información de la película, se cambiará por lo que tengamos de Trakt
+                Movie item = (Movie) parent.getItemAtPosition(position);
+
+                //Pasar el título y la imagen a la pantalla de película
+                Intent intent = new Intent(getApplicationContext(), MovieActivity.class);
+                intent.putExtra("id", item.getIds().getTmdb().toString());
+
+
+                startActivity(intent);
+
+            }
+        });
+
 
 
         // Item Buscar Película
@@ -89,5 +116,7 @@ public class MovieGridGenreActivity extends AppCompatActivity {
         });
         return super.onCreateOptionsMenu(menu);
     }
+
+
 
 }
