@@ -1,26 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="1">
 
     <ImageView
-        android:id="@+id/image_view"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center_vertical"
-        android:padding="5dp"
-        android:src="@drawable/ic_accion" />
+        android:id="@+id/imageView3"
+        android:layout_width="590dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/tag_icon_genre" />
 
-    <TextView
-        android:id="@+id/text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="20dp"
-        android:text="Género"
-        android:textColor="#000"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginLeft="25dp"
+            android:layout_weight="0.14"
+            android:padding="5dp"
+            android:src="@drawable/ic_accion" />
+
+        <TextView
+            android:id="@+id/text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:paddingLeft="4dp"
+            android:text="Género"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorIcons"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+</FrameLayout>

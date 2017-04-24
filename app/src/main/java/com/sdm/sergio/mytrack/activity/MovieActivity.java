@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +19,10 @@ import com.sdm.sergio.mytrack.model.SpokenLanguage;
 import com.sdm.sergio.mytrack.model.TMDBMovie;
 import com.sdm.sergio.mytrack.util.Storage;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class MovieActivity extends AppCompatActivity {
@@ -28,6 +33,7 @@ public class MovieActivity extends AppCompatActivity {
     private FloatingActionMenu menuAdd;
     private com.github.clans.fab.FloatingActionButton fabtrailer;
     private com.github.clans.fab.FloatingActionButton fab1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +69,23 @@ public class MovieActivity extends AppCompatActivity {
             public void onClick(View v) {
                 menuAdd.toggle(true);
             }
-        });}
+        });
+
+        //Flecha de Atrás
+        Button button_back = (Button) findViewById(R.id.button_back);
+
+        button_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Que vuelva atrás
+                onBackPressed();
+            }
+        });
+
+    }
+
+
+
 
     //Rellenar datos película
     public void rellenarDatos(){
@@ -77,6 +99,10 @@ public class MovieActivity extends AppCompatActivity {
         //SINOPSIS
         TextView tv_sinopsis = (TextView) findViewById(R.id.tv_sinopsis);
         tv_sinopsis.setText(movie.getOverview());
+
+        //DURACION
+        TextView tv_duracion = (TextView) findViewById(R.id.tv_duracion);
+        tv_duracion.setText(""+movie.getRuntime()+" min");
 
         //Poner la imagen "pequeña"
         ImageView imagenMovie = (ImageView) findViewById(R.id.image);
@@ -147,6 +173,19 @@ public class MovieActivity extends AppCompatActivity {
         }
         tv_idiomas.setText(idiomasList);
 
+        //PRESUPUESTO
+        TextView tv_presupuesto = (TextView) findViewById(R.id.tv_presupuesto);
+        tv_presupuesto.setText(""+movie.getBudget()+" $");
+
+        //INGRESOS
+        TextView tv_ingresos = (TextView) findViewById(R.id.tv_ingresos);
+        tv_ingresos.setText(""+movie.getRevenue()+" $");
+
+        //Si es una pelicula de adultos poner +18
+        if(movie.isAdult()){
+            TextView tv_adulto = (TextView) findViewById(R.id.tv_adulto);
+            tv_adulto.setText("+18");
+        }
 
     }
 

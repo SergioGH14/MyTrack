@@ -5,26 +5,28 @@
 <LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="1">
 
 
     <ImageView
         android:id="@+id/movie_image"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
+        android:layout_weight="0.40"
         android:cropToPadding="true"
-        android:scaleType="centerCrop"/></LinearLayout>
+        android:scaleType="centerCrop" /></LinearLayout>
+
     <TextView
         android:id="@+id/movie_name"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="30dp"
         android:layout_gravity="bottom"
         android:background="#90000000"
         android:maxLines="1"
         android:padding="1dp"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-        android:textColor="@android:color/white"
-        />
+        android:textColor="@android:color/white" />
 
 </FrameLayout>

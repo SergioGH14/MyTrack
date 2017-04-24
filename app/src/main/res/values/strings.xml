@@ -11,6 +11,8 @@
     <string name="duracion">Duration:</string>
     <string name="paises">Countries:</string>
     <string name="idioma">Original Language:</string>
+    <string name="presupuesto">Budget:</string>
+    <string name="ingresos">Revenue:</string>
     <string name="anyo">Year:</string>
     <string name="genero">Gender:</string>
     <string name="coleccion">Add to my collection...</string>

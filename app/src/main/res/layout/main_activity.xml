@@ -4,6 +4,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+
     <!-- This could be your fragment container, or something -->
     <FrameLayout
         android:id="@+id/contentContainer"
@@ -21,7 +23,8 @@
         android:layout_alignParentBottom="true"
         app:bb_tabXmlResource="@xml/bottombar_tabs"
         style="@style/navigationBarTheme"
-        app:bb_badgeBackgroundColor="@color/colorPrimary"/>
+        app:bb_badgeBackgroundColor="@color/colorPrimary"
+        app:bb_activeTabColor="@color/colorPrimaryDark"/>
 
 
 
