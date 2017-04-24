@@ -2,6 +2,8 @@ package com.sdm.sergio.mytrack.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,4 +35,13 @@ public class ProfileActibity extends AppCompatActivity {
 
         }
 
+    public boolean onCreateOptionsMenu(Menu menu) //Enlazar el menu
+    {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_action_bar, menu);
+
+        return super.onCreateOptionsMenu(menu);
     }
+
+}
+

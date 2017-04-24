@@ -423,7 +423,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:background="@android:color/transparent"
-            android:drawableLeft="@drawable/ic_back" />
+            android:drawableLeft="@drawable/ic_shadow_back" />
 
         <ImageView
             android:id="@+id/image"
@@ -455,7 +455,7 @@
             android:fontFamily="sans-serif-condensed"
             android:maxLines="3"
             android:paddingLeft="10dp"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             android:textColor="@color/bb_inActiveBottomBarItemColor"
             android:textSize="18sp"
             android:textStyle="bold"
