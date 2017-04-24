@@ -22,7 +22,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Full Name"
-                android:textColor="@color/colorIcons" />
+                android:textColor="@color/black" />
 
             <EditText
                 android:id="@+id/reg_fullname"
@@ -31,13 +31,13 @@
                 android:layout_marginBottom="20dip"
                 android:layout_marginTop="5dip"
                 android:singleLine="true"
-                android:textColor="@color/colorIcons" />
+                android:textColor="@color/black" />
             <!--  Email Label -->
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Email"
-                android:textColor="@color/colorIcons" />
+                android:textColor="@color/black" />
 
             <EditText
                 android:id="@+id/reg_email"
@@ -46,13 +46,13 @@
                 android:layout_marginBottom="20dip"
                 android:layout_marginTop="5dip"
                 android:singleLine="true"
-                android:textColor="@color/colorIcons" />
+                android:textColor="@color/black" />
             <!-- Password Label -->
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Password"
-                android:textColor="@color/colorIcons" />
+                android:textColor="@color/black" />
 
             <EditText
                 android:id="@+id/reg_password"
@@ -61,7 +61,7 @@
                 android:layout_marginTop="5dip"
                 android:password="true"
                 android:singleLine="true"
-                android:textColor="@color/colorIcons" />
+                android:textColor="@color/black" />
             <!-- Register Button -->
             <Button android:id="@+id/btnRegister"
                 android:layout_width="fill_parent"
