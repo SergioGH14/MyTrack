@@ -13,7 +13,9 @@
         android:fitsSystemWindows="true"
         android:minHeight="?attr/actionBarSize"
         app:title="@string/title_generos"
-        app:titleTextColor="@android:color/white"></android.support.v7.widget.Toolbar>
+        app:titleTextColor="@android:color/white">
+
+    </android.support.v7.widget.Toolbar>
 
 
     <ListView
@@ -23,6 +25,7 @@
         android:background="@android:color/white"
         android:columnWidth="100dp"
         android:divider="@color/colorIcons"
-        android:numColumns="3" />
+        android:numColumns="3"
+        />
 
 </LinearLayout>

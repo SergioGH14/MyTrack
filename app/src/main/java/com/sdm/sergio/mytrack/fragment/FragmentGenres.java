@@ -1,5 +1,6 @@
 package com.sdm.sergio.mytrack.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -8,8 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.sdm.sergio.mytrack.R;
+import com.sdm.sergio.mytrack.activity.MovieActivity;
+import com.sdm.sergio.mytrack.activity.MovieGridGenreActivity;
 import com.sdm.sergio.mytrack.adapter.GenreListAdapter;
 
 
@@ -72,21 +76,25 @@ public class FragmentGenres extends android.support.v4.app.Fragment{
 
 
         GenreListAdapter adapter = new GenreListAdapter(getActivity(), itemImageList, itemGenreList);
-        ListView listView = (ListView) v.findViewById(R.id.custom_listview_genres);
+        final ListView listView = (ListView) v.findViewById(R.id.custom_listview_genres);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
+                //Para que cuando pulses en un género no se note ningún color, salía amarillo
+                listView.setBackgroundColor(getResources().getColor(R.color.colorIcons));
+
                 //Cambiar título del action bar por el género
                 getActivity().setTitle(itemGenreList[position]);
 
-                /*
-                //Enviar a DiscoverFragment el género
-                getActivity().pasarDatosGeneroGrid(itemGenreList[position])
-                */
+                String genero = itemGenreList[position];
 
-                //Cambiar al fragment con el grid de generos según el género
+                //Pasar el género a la pantalla de grid de películas por género
+                Intent intent = new Intent(getActivity(), MovieGridGenreActivity.class);
+                intent.putExtra("genero", genero);
+
+                getActivity().startActivity(intent);
 
             }
         });
