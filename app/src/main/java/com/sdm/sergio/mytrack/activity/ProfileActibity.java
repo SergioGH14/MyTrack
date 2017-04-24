@@ -14,6 +14,7 @@ public class ProfileActibity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        //
         //Ir a la vista de perfil del usuario
         setContentView(R.layout.a_profile);
 
