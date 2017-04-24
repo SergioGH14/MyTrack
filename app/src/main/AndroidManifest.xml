@@ -20,11 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MovieActivity" />
-        <activity android:name=".activity.MovieGridGenreActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.ActBottomNav" />
-        </activity>
+        <activity android:name=".activity.MovieGridGenreActivity"></activity>
     </application>
 
 </manifest>
