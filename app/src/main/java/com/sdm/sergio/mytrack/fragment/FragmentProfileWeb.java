@@ -1,7 +1,6 @@
 package com.sdm.sergio.mytrack.fragment;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -18,7 +17,7 @@ import android.widget.ProgressBar;
 
 import com.sdm.sergio.mytrack.R;
 
-public class FragmentProfileWeb extends Fragment {
+public class FragmentProfileWeb  extends android.support.v4.app.Fragment{
     private WebView mWebView;
     private String url ="https://trakt.tv/auth/signin/";
     private ProgressBar bar;
@@ -27,10 +26,10 @@ public class FragmentProfileWeb extends Fragment {
     private ProgressDialog progress;
     private WebView webView;
 
-    public static FragmentProfileWeb newInstance() {
+    public static FragmentProfileWeb newInstance(){
         FragmentProfileWeb fragment = new FragmentProfileWeb();
-        return fragment;
-    }
+        return new FragmentProfileWeb();}
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

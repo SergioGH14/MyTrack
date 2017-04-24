@@ -1,27 +1,22 @@
 package com.sdm.sergio.mytrack.activity;
 
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 import com.sdm.sergio.mytrack.R;
 import com.sdm.sergio.mytrack.fragment.FragmentGenres;
-import com.sdm.sergio.mytrack.fragment.FragmentProfile;
+import com.sdm.sergio.mytrack.fragment.FragmentProfileWeb;
 import com.sdm.sergio.mytrack.fragment.FragmentSpinner;
-import com.sdm.sergio.mytrack.fragment.FragmentTrending;
 import com.sdm.sergio.mytrack.task.MovieDiscoverReq;
 import com.sdm.sergio.mytrack.util.Storage;
 
@@ -69,7 +64,7 @@ public class ActBottomNav extends AppCompatActivity{
 
                 }
                 if (tabId == R.id.tab_profile) {
-                    context = FragmentProfile.newInstance();
+                    context = FragmentProfileWeb.newInstance();
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.contentContainer,context);
                     //Cambiar título del action bar a Perfil

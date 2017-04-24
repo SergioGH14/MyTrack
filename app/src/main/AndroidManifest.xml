@@ -23,7 +23,6 @@
         <activity android:name=".activity.MovieActivity" />
         <activity android:name=".activity.MovieGridGenreActivity"></activity>
         <activity android:name=".activity.ProfileActibity"></activity>
-        <activity android:name=".activity.RegistreActivity"></activity>
 
     </application>
 

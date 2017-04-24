@@ -9,7 +9,6 @@ import android.widget.Button;
 
 import com.sdm.sergio.mytrack.R;
 import com.sdm.sergio.mytrack.activity.ProfileActibity;
-import com.sdm.sergio.mytrack.activity.RegistreActivity;
 
 /**
  * Created by Sergio on 20/04/2017.
@@ -42,10 +41,6 @@ public class FragmentProfile extends android.support.v4.app.Fragment {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.registre_b:
-                    Intent registre = new Intent(getActivity(), RegistreActivity.class);
-                    startActivity(registre);
-                    break;
                 case R.id.perfil_b:
                     Intent profile = new Intent(getActivity(), ProfileActibity.class);
                     startActivity(profile);

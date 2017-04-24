@@ -430,6 +430,8 @@
             android:id="@+id/image"
             android:layout_width="90dp"
             android:layout_height="130dp"
+            android:layout_alignStart="@+id/button_back"
+            android:layout_below="@+id/button_back"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="12dp"
             android:layout_marginTop="55dp"
@@ -439,9 +441,7 @@
             android:scaleType="centerCrop"
             tools:background="#ccc"
             tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="324dp"
-            android:layout_below="@+id/button_back"
-            android:layout_alignStart="@+id/button_back" />
+            tools:layout_editor_absoluteY="324dp" />
 
         <TextView
             android:id="@+id/title"
@@ -467,10 +467,10 @@
             android:layout_width="50dp"
             android:layout_height="30dp"
             android:layout_alignBottom="@+id/title"
+            android:layout_alignParentEnd="true"
             android:layout_marginBottom="53dp"
             android:textColor="@android:color/holo_red_dark"
-            android:textStyle="bold"
-            android:layout_alignParentEnd="true" />
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
