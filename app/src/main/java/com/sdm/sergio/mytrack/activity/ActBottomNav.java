@@ -28,6 +28,8 @@ public class ActBottomNav extends AppCompatActivity{
         setContentView(R.layout.main_activity);
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimaryDark)));
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_moviet);
 
         //Inicializamos la BBDD
         Storage.StorageInit(getApplicationContext());
