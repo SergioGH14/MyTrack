@@ -19,10 +19,6 @@ import com.sdm.sergio.mytrack.model.SpokenLanguage;
 import com.sdm.sergio.mytrack.model.TMDBMovie;
 import com.sdm.sergio.mytrack.util.Storage;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 public class MovieActivity extends AppCompatActivity {
@@ -102,7 +98,7 @@ public class MovieActivity extends AppCompatActivity {
 
         //DURACION
         TextView tv_duracion = (TextView) findViewById(R.id.tv_duracion);
-        tv_duracion.setText(""+movie.getRuntime()+" min");
+        tv_duracion.setText(""+movie.getRuntime()+ getString(R.string.min));
 
         //Poner la imagen "pequeña"
         ImageView imagenMovie = (ImageView) findViewById(R.id.image);
@@ -175,16 +171,16 @@ public class MovieActivity extends AppCompatActivity {
 
         //PRESUPUESTO
         TextView tv_presupuesto = (TextView) findViewById(R.id.tv_presupuesto);
-        tv_presupuesto.setText(""+movie.getBudget()+" $");
+        tv_presupuesto.setText(""+movie.getBudget()+""+getString(R.string.dolar));
 
         //INGRESOS
         TextView tv_ingresos = (TextView) findViewById(R.id.tv_ingresos);
-        tv_ingresos.setText(""+movie.getRevenue()+" $");
+        tv_ingresos.setText(""+movie.getRevenue()+""+getString(R.string.dolar));
 
         //Si es una pelicula de adultos poner +18
         if(movie.isAdult()){
             TextView tv_adulto = (TextView) findViewById(R.id.tv_adulto);
-            tv_adulto.setText("+18");
+            tv_adulto.setText(getString(R.string.mayor));
         }
 
     }

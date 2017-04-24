@@ -1,8 +1,32 @@
 <resources>
+    <!--Activity-->
     <string name="app_name">MyTrack</string>
     <string name="title_lists">Categories</string>
     <string name="title_discover">Films</string>
     <string name="title_profile">Profile</string>
+    <string name="search_hint">Search...</string>
+    <string name="esperar">Aguarde..</string>
+    <string name="conectando">Conectando con Track.tv.</string>
+    <string name="urltrack">https://trakt.tv/auth/signin/</string>
+    <string name="register">Register</string>
+    <string name="profiles">Profile Track.tv</string>
+    <string name="fullname">Full Name</string>
+    <string name="password">Password</string>
+    <string name="RegisterNewAccount">Register New Account</string>
+    <string name="name">Name</string>
+
+    <!--Menu tabs -->
+    <string name="generos">Gender</string>
+    <string name="treding">Trending</string>
+    <string name="profile">Profile</string>
+
+    <!--No tocar -->
+    <string name="urlt">trakt.tv</string>
+    <string name="min"> min</string>
+    <string name="dolar"> $</string>
+    <string name="mayor">+18</string>
+
+
     <string name="information">INFORMATION</string>
     <string name="actors">ACTORS</string>
     <string name="sinopsis">Sinopsis</string>
@@ -17,7 +41,7 @@
     <string name="genero">Gender:</string>
     <string name="coleccion">Add to my collection...</string>
     <string name="buscar">Search</string>
-    <string name="search_hint">Search...</string>
+
     <string name="fav_add">Film add to favorites</string>
     <string name="no_trailer">There is no trailer for this movie</string>
 
@@ -33,7 +57,6 @@
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
@@ -51,13 +74,12 @@
     <string name="title_activity_movie">MovieActivity</string>
 
     <!-- String de Géneros -->
-
     <string name="accion">Action</string>
     <string name="aventura">Adventure</string>
     <string name="animacion">Animation</string>
     <string name="comedia">Comedy</string>
-    <string name="crimen">Crime</string>
-    <string name="documental">Documental</string>
+    <string name="crimen">Director:</string>
+    <string name="documental">Docuemental</string>
     <string name="drama">Drama</string>
     <string name="fantasia">Fantasy</string>
     <string name="historia">History</string>
@@ -70,9 +92,31 @@
     <string name="guerra">War</string>
     <string name="oeste">Western</string>
 
-    <!--Prueba -->
+    <!--Menu -->
     <string name="menu_item_call">Buscar</string>
     <string name="menu_item_text">Trailer</string>
     <string name="menu_item_email">Email</string>
+
+    <!--Id Géneros-->
+    <string name="id_action">28</string>
+    <string name="id_adventure">12</string>
+    <string name="id_animation">16</string>
+    <string name="id_comedy">35</string>
+    <string name="id_crime">80</string>
+    <string name="id_documentary">99</string>
+    <string name="id_drama">18</string>
+    <string name="id_family">10751</string>
+    <string name="id_fantasy">14</string>
+    <string name="id_history">36</string>
+    <string name="id_horror">27</string>
+    <string name="id_musical">10402</string>
+    <string name="id_mystery">9648</string>
+    <string name="id_romance">10749</string>
+    <string name="id_fiction">878</string>
+    <string name="id_thriller">53</string>
+    <string name="id_war">10752</string>
+    <string name="id_western">37</string>
+    <string name="GET">GET</string>
+    <string name="https">https</string>
 
 </resources>

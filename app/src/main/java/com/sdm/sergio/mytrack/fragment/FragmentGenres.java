@@ -3,18 +3,13 @@ package com.sdm.sergio.mytrack.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.sdm.sergio.mytrack.R;
-import com.sdm.sergio.mytrack.activity.MovieActivity;
 import com.sdm.sergio.mytrack.activity.MovieGridGenreActivity;
 import com.sdm.sergio.mytrack.adapter.GenreListAdapter;
 
@@ -94,7 +89,7 @@ public class FragmentGenres extends android.support.v4.app.Fragment{
 
                 //Pasar el género a la pantalla de grid de películas por género
                 Intent intent = new Intent(getActivity(), MovieGridGenreActivity.class);
-                intent.putExtra("genero", genero);
+                intent.putExtra("generos", genero);
 
                 getActivity().startActivity(intent);
 

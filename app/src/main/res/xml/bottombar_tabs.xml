@@ -3,13 +3,13 @@
     <tab
         id="@+id/tab_genres"
         icon="@drawable/ic_list"
-        title="Genres" />
+        title="@string/generos" />
     <tab
         id="@+id/tab_trending"
         icon="@drawable/ic_discover"
-        title="Trending" />
+        title="@string/treding" />
     <tab
         id="@+id/tab_profile"
         icon="@drawable/ic_user"
-        title="Profile" />
+        title="@string/profile" />
 </tabs>
