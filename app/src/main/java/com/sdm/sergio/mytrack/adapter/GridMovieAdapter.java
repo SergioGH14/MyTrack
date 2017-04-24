@@ -62,5 +62,7 @@ public class GridMovieAdapter extends BaseAdapter {
 
         return view;
     }
+
+
 }
 

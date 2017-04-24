@@ -18,11 +18,11 @@
         android:id="@+id/registre_b"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registre" />
+        android:text="@string/register" />
 
     <Button
         android:id="@+id/perfil_b"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Profile Track.TV" />
+        android:text="@string/profiles" />
 </LinearLayout>

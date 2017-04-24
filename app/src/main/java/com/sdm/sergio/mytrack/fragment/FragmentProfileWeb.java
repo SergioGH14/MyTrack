@@ -54,10 +54,10 @@ public class FragmentProfileWeb  extends android.support.v4.app.Fragment{
         webView.setBackgroundResource(R.color.colorPrimaryDark);
         webView.canGoBack();
         webView.goBack();
-        webView.loadUrl("https://trakt.tv/auth/signin/");
+        webView.loadUrl(getString(R.string.urltrack));
 
-        progress = ProgressDialog.show(getContext(), "Aguarde..",
-                "Conectando con Track.tv.", true);
+        progress = ProgressDialog.show(getContext(), getString(R.string.esperar),
+                getString(R.string.conectando), true);
         webView.setWebViewClient(new WebViewClient() {
 
             public void onPageFinished(WebView view, String url) {
@@ -73,7 +73,7 @@ public class FragmentProfileWeb  extends android.support.v4.app.Fragment{
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            if (Uri.parse(url).getHost().endsWith("trakt.tv")) {
+            if (Uri.parse(url).getHost().endsWith(getString(R.string.urlt))) {
                 return false;
             }
 
