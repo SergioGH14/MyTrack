@@ -1,10 +1,12 @@
 package com.sdm.sergio.mytrack.util;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.sdm.sergio.mytrack.model.InfoMovie;
 import com.sdm.sergio.mytrack.model.TMDBMovie;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -41,7 +43,29 @@ public class Storage {
 
         String json = org.apache.commons.io.IOUtils.toString(reader);
 
-        TMDBMovieSQLHelper.getInstance(context).addTMDBMovie(Integer.parseInt(id),json);}
+//        BufferedReader br =  new BufferedReader(reader);
+//        StringBuilder sb = new StringBuilder();
+//        String line;
+//
+//        try {
+//            while ((line = br.readLine()) != null) {
+//                sb.append(line);
+//            }
+//        } catch (IOException e) {e.printStackTrace();}
+//            if (br != null) {
+//                try {
+//                    br.close();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//
+//
+//        String json = sb.toString();
+
+        TMDBMovieSQLHelper.getInstance(context).addTMDBMovie(Integer.parseInt(id),json);
+
+    }
 
     public TMDBMovie extractFullMovie(String id){
         if(fullmovies.get(id)!=null){
