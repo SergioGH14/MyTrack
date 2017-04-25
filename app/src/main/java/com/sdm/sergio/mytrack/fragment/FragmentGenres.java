@@ -26,6 +26,8 @@ public class FragmentGenres extends android.support.v4.app.Fragment{
             // Si este fragmento quiere participar al recibir una llamada el onCreateOptionsMenu de
             // la actividad principal.
             setHasOptionsMenu(false);
+
+            //Añadir Toolbar
     }
 
     //Listas de Generos y sus iconos

@@ -119,4 +119,10 @@
     <string name="GET">GET</string>
     <string name="https">https</string>
 
+    <!-- App Intro -->
+    <string name="app_intro">Intro</string>
+    <string name="info_intro">The best android app to get movie info</string>
+    <string name="bienvenida_intro">Welcome to InfoMovies </string>
+    <string name="datos_intro">Take a moment to answer some questions, please</string>
+    <string name="q_nombre_intro">What will be your username?</string>
 </resources>

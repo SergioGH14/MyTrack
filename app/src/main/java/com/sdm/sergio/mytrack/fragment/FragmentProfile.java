@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.sdm.sergio.mytrack.R;
-import com.sdm.sergio.mytrack.activity.ProfileActibity;
+import com.sdm.sergio.mytrack.activity.ProfileActivity;
 
 /**
  * Created by Sergio on 20/04/2017.
@@ -42,7 +42,7 @@ public class FragmentProfile extends android.support.v4.app.Fragment {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.perfil_b:
-                    Intent profile = new Intent(getActivity(), ProfileActibity.class);
+                    Intent profile = new Intent(getActivity(), ProfileActivity.class);
                     startActivity(profile);
                     break;
             }

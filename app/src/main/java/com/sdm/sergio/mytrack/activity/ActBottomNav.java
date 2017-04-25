@@ -1,7 +1,10 @@
 package com.sdm.sergio.mytrack.activity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
@@ -22,10 +25,40 @@ import com.sdm.sergio.mytrack.util.Storage;
 
 public class ActBottomNav extends AppCompatActivity{
 
+    public boolean isFirstStart ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+
+        /***************************** APP INTRO *************************************************/
+   /*     Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //  Intro App Initialize SharedPreferences
+                SharedPreferences getSharedPreferences = PreferenceManager
+                        .getDefaultSharedPreferences(getBaseContext());
+
+                //  Create a new boolean and preference and set it to true
+                isFirstStart = getSharedPreferences.getBoolean("firstStart", true);
+
+                //  Check either activity or app is open very first time or not and do action
+                if (isFirstStart) {
+
+                    //  Launch application introduction screen
+                    Intent i = new Intent(ActBottomNav.this, MyIntro.class);
+                    startActivity(i);
+                    SharedPreferences.Editor e = getSharedPreferences.edit();
+                    e.putBoolean("firstStart", false);
+                    e.apply();
+                }
+            }
+        });
+        t.start();*/
+
+        /*****************************************************************************************/
+
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimaryDark)));
         getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -48,17 +81,16 @@ public class ActBottomNav extends AppCompatActivity{
                     context = FragmentGenres.newInstance();
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.contentContainer,context);
-                    getSupportActionBar().setTitle(R.string.title_generos);
+                    getSupportActionBar().hide();
 
                     transaction.commit();
                 }
                 if (tabId == R.id.tab_trending) {
-                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     context = FragmentSpinner.newInstance();
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.contentContainer,context);
+                    getSupportActionBar().show();
                     getSupportActionBar().setTitle(R.string.app_name);
-
-
                     transaction.commit();
                     transaction = getSupportFragmentManager().beginTransaction();
                     MovieDiscoverReq task = new MovieDiscoverReq(transaction);
@@ -70,7 +102,7 @@ public class ActBottomNav extends AppCompatActivity{
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.contentContainer,context);
                     //Cambiar título del action bar a Perfil
-                    getSupportActionBar().setTitle(R.string.title_profile);
+                    getSupportActionBar().hide();
                     transaction.commit();
                 }
 
@@ -138,6 +170,14 @@ public class ActBottomNav extends AppCompatActivity{
         DiscoverFragment fragment=(DiscoverFragment) fragmentManager.findFragmentById(R.id.DiscoverFragment);
         DiscoverFragment.//El método que tengo en DiscoverFragment para cambiar el list de películas//;
     }*/
+
+
+
+    public boolean getIsFirstStart(){
+        return isFirstStart;
+    }
+
+
 
 
 }

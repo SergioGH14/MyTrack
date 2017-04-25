@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.sdm.sergio.mytrack.R;
 
 
-public class ProfileActibity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

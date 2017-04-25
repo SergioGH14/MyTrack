@@ -9,10 +9,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
 import com.sdm.sergio.mytrack.R;
+import com.sdm.sergio.mytrack.activity.ActBottomNav;
 import com.sdm.sergio.mytrack.fragment.FragmentTrending;
 import com.sdm.sergio.mytrack.model.InfoMovie;
 import com.sdm.sergio.mytrack.model.TMDBMovie;
 import com.sdm.sergio.mytrack.util.Storage;
+import com.sdm.sergio.mytrack.activity.ActBottomNav;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,7 +34,6 @@ public class MovieDiscoverReq extends AsyncTask<Void,Void,Void> {
     private String res;
     FragmentTransaction transaction;
     private InfoMovie[] imovie;
-
 
     public MovieDiscoverReq(FragmentTransaction transaction) {
         super();
@@ -130,6 +131,7 @@ public class MovieDiscoverReq extends AsyncTask<Void,Void,Void> {
         /*Esto es de prueba hasta que funcione la peticion
          * Cuando funcione, deberá poner el imovie en Storage y hacer commit a la transaccion del fragment trending
          */
+
         FragmentTrending context = FragmentTrending.newInstance();
         transaction.replace(R.id.contentContainer,context);
         transaction.commit();

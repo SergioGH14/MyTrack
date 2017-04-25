@@ -14,7 +14,9 @@
         android:roundIcon="@drawable/ic_moviet"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ActBottomNav">
+        <activity android:name=".activity.ActBottomNav"
+            android:screenOrientation="portrait">
+            <!-- Bloquear la rotación de la pantalla -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,8 +24,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MovieActivity" />
-        <activity android:name=".activity.MovieGridGenreActivity"></activity>
-        <activity android:name=".activity.ProfileActibity"></activity>
+        <activity android:name=".activity.MovieGridGenreActivity"
+            android:screenOrientation="portrait">
+            <!-- Bloquear la rotación de la pantalla -->
+        </activity>
+        <activity android:name=".activity.ProfileActivity"
+            android:screenOrientation="portrait">
+            <!-- Bloquear la rotación de la pantalla -->
+        </activity>
+        <activity
+            android:name=".activity.MyIntro"
+            android:theme="@style/FullscreenTheme" />
 
     </application>
 

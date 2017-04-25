@@ -90,4 +90,12 @@
     <string name="dolar">€</string>
     <string name="min">min</string>
     <string name="mayor">+18</string>
+
+    <!-- App Intro -->
+    <string name="app_intro">Intro</string>
+    <string name="info_intro">La mejor aplicación para obtener información de películas</string>
+    <string name="bienvenida_intro">Bienvenido a InfoMovies </string>
+    <string name="datos_intro">Tomate un momento para responder unas preguntas, por favor</string>
+    <string name="q_nombre_intro">¿Cuál será tu nombre de usuario?</string>
+
 </resources>
