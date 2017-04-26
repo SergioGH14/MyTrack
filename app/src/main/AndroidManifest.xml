@@ -24,6 +24,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MovieActivity" />
+        <activity android:name=".activity.GenreMovieActivity" />
         <activity android:name=".activity.MovieGridGenreActivity"
             android:screenOrientation="portrait">
             <!-- Bloquear la rotación de la pantalla -->

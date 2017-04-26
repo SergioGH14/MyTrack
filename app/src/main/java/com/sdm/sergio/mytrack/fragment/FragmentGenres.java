@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.sdm.sergio.mytrack.R;
+import com.sdm.sergio.mytrack.activity.GenreMovieActivity;
 import com.sdm.sergio.mytrack.activity.MovieGridGenreActivity;
 import com.sdm.sergio.mytrack.adapter.GenreListAdapter;
 
@@ -22,7 +23,9 @@ public class FragmentGenres extends android.support.v4.app.Fragment{
 
     public static FragmentGenres newInstance(){
         FragmentGenres fragment = new FragmentGenres();
-        return new FragmentGenres();}
+        return new FragmentGenres();
+    }
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -111,6 +114,8 @@ public class FragmentGenres extends android.support.v4.app.Fragment{
                 //Pasar el género a la pantalla de grid de películas por género
                 Intent intent = new Intent(getActivity(), MovieGridGenreActivity.class);
                 intent.putExtra("generos", genero);
+                Intent intent2 = new Intent(getActivity(), GenreMovieActivity.class);
+                intent2.putExtra("lista_generos", genres);
 
                 getActivity().startActivity(intent);
 

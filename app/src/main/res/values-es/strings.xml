@@ -21,8 +21,8 @@
     <string name="error_incorrect_password">Esta contraseña es incorrecta</string>
     <string name="error_invalid_email">Esta dirección de correo electrónico no es válida.</string>
     <string name="error_invalid_password">Esta contraseña es demasiado corta</string>
-    <string name="esperar">Espere ..</string>
-    <string name="estreno">Fecha de lanzamiento</string>
+    <string name="esperar">Espere...</string>
+    <string name="estreno">Fecha de lanzamiento:</string>
     <string name="fantasia">Fantasia</string>
     <string name="fav_add">Película agregar a favoritos</string>
     <string name="ficcion">Ciencia ficción</string>

@@ -27,6 +27,9 @@ public class ActBottomNav extends AppCompatActivity{
 
     public boolean isFirstStart ;
 
+    public boolean hideIcon = true;
+
+    private MenuItem searchItem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,14 +84,14 @@ public class ActBottomNav extends AppCompatActivity{
                     context = FragmentGenres.newInstance();
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.contentContainer,context);
-                    getSupportActionBar().hide();
-
+                    getSupportActionBar().dispatchMenuVisibilityChanged(false);
                     transaction.commit();
                 }
                 if (tabId == R.id.tab_trending) {
                     context = FragmentSpinner.newInstance();
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.contentContainer,context);
+                    setHideIcon(false);
                     getSupportActionBar().show();
                     getSupportActionBar().setTitle(R.string.app_name);
                     transaction.commit();
@@ -101,16 +104,14 @@ public class ActBottomNav extends AppCompatActivity{
                     context = FragmentProfileWeb.newInstance();
                     FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                     transaction.replace(R.id.contentContainer,context);
-                    //Cambiar título del action bar a Perfil
-                    getSupportActionBar().hide();
                     transaction.commit();
                 }
-
-
 
             }
         });
     }
+
+
 
     public boolean onCreateOptionsMenu(Menu menu) //Enlazar el menu
     {
@@ -118,18 +119,17 @@ public class ActBottomNav extends AppCompatActivity{
         inflater.inflate(R.menu.menu_action_bar, menu);
 
         // Item Buscar Película
-        final MenuItem searchItem = menu.findItem(R.id.action_search);
+        searchItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         searchItem.setIcon(R.drawable.ic_buscar);
 
-        //Quitar buscar si estoy en el fragment de géneros
-        //int idFrag = fragmentoActual.getId();
-        /*if(idFrag == getSupportFragmentManager().findFragmentByTag("")){
-            searchItem.setVisible(false);
+
+        //Quitar buscar
+        if (isHideIcon()){
+            menu.findItem(R.id.action_search).setVisible(false);
+        }else{
+            menu.findItem(R.id.action_search).setVisible(true);
         }
-        else{
-            searchItem.setVisible(true);
-        }*/
 
         //El hint que el EditText muestra por defecto
         searchView.setQueryHint(getText(R.string.search_hint));
@@ -171,11 +171,18 @@ public class ActBottomNav extends AppCompatActivity{
         DiscoverFragment.//El método que tengo en DiscoverFragment para cambiar el list de películas//;
     }*/
 
-
-
-    public boolean getIsFirstStart(){
+    public boolean isFirstStart(){
         return isFirstStart;
     }
+
+    public boolean isHideIcon() {
+        return hideIcon;
+    }
+
+    public void setHideIcon(boolean hideIcon) {
+        this.hideIcon = hideIcon;
+    }
+
 
 
 

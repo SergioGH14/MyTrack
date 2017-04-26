@@ -5,7 +5,7 @@
     <string name="title_discover">Films</string>
     <string name="title_profile">Profile</string>
     <string name="search_hint">Search...</string>
-    <string name="esperar">Aguarde..</string>
+    <string name="esperar">Wait...</string>
     <string name="conectando">Conectando con Track.tv.</string>
     <string name="urltrack">https://trakt.tv/auth/signin/</string>
     <string name="register">Register</string>
@@ -78,7 +78,7 @@
     <string name="aventura">Adventure</string>
     <string name="animacion">Animation</string>
     <string name="comedia">Comedy</string>
-    <string name="crimen">Director:</string>
+    <string name="crimen">Crime</string>
     <string name="documental">Docuemental</string>
     <string name="drama">Drama</string>
     <string name="fantasia">Fantasy</string>

@@ -43,6 +43,7 @@ public class FragmentTrending extends android.support.v4.app.Fragment{
         gridView.setAdapter(adaptador);
 
 
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
