@@ -50,6 +50,7 @@ public class MyIntro extends AppIntro {
     @Override
     public void onDonePressed() {
         // Do something here when users click or tap tap on Done button.
+
         finish();
     }
 

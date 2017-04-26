@@ -1,8 +1,10 @@
 package com.sdm.sergio.mytrack.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
@@ -18,6 +20,7 @@ import com.sdm.sergio.mytrack.R;
 import com.sdm.sergio.mytrack.fragment.FragmentGenres;
 import com.sdm.sergio.mytrack.fragment.FragmentProfileWeb;
 import com.sdm.sergio.mytrack.fragment.FragmentSpinner;
+import com.sdm.sergio.mytrack.task.MovieDiscoverIntroReq;
 import com.sdm.sergio.mytrack.task.MovieDiscoverReq;
 import com.sdm.sergio.mytrack.util.Storage;
 
@@ -32,17 +35,17 @@ public class ActBottomNav extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+        SharedPreferences getSharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(getBaseContext());
+        isFirstStart = getSharedPreferences.getBoolean("firstStart", true);
 
         /***************************** APP INTRO *************************************************/
-   /*     Thread t = new Thread(new Runnable() {
+      Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
                 //  Intro App Initialize SharedPreferences
                 SharedPreferences getSharedPreferences = PreferenceManager
                         .getDefaultSharedPreferences(getBaseContext());
-
-                //  Create a new boolean and preference and set it to true
-                isFirstStart = getSharedPreferences.getBoolean("firstStart", true);
 
                 //  Check either activity or app is open very first time or not and do action
                 if (isFirstStart) {
@@ -51,14 +54,16 @@ public class ActBottomNav extends AppCompatActivity{
                     Intent i = new Intent(ActBottomNav.this, MyIntro.class);
                     startActivity(i);
                     SharedPreferences.Editor e = getSharedPreferences.edit();
+                    MovieDiscoverIntroReq task = new MovieDiscoverIntroReq();
+                    task.execute();
                     e.putBoolean("firstStart", false);
                     e.apply();
                 }
             }
         });
-        t.start();*/
+        t.start();
 
-        /*****************************************************************************************/
+
 
 
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimaryDark)));
@@ -93,9 +98,11 @@ public class ActBottomNav extends AppCompatActivity{
                     getSupportActionBar().show();
                     getSupportActionBar().setTitle(R.string.app_name);
                     transaction.commit();
-                    transaction = getSupportFragmentManager().beginTransaction();
-                    MovieDiscoverReq task = new MovieDiscoverReq(transaction);
-                    task.execute();
+                    if(isFirstStart==false){
+                        transaction = getSupportFragmentManager().beginTransaction();
+                        MovieDiscoverReq task = new MovieDiscoverReq(transaction);
+                        task.execute();
+                    }
 
                 }
                 if (tabId == R.id.tab_profile) {

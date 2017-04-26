@@ -58,7 +58,7 @@ public class GridMovieAdapter extends BaseAdapter {
                 .load("https://image.tmdb.org/t/p/w500/"+item.getFullmovie().getPosterPath())
                 .into(imagenMovie);
 
-        nombreMovie.setText(item.getTittle());
+        nombreMovie.setText(item.getFullmovie().getTitle());
 
         return view;
     }

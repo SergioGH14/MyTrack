@@ -39,7 +39,8 @@ public class FragmentTrending extends android.support.v4.app.Fragment{
 
         View v = inflater.inflate(R.layout.f_trending, container, false);
         gridView = (GridView) v.findViewById(R.id.grid);
-        adaptador = new GridMovieAdapter(Storage.getInstance().getDiscover(),this.getActivity());
+        Storage cache = Storage.getInstance();
+        adaptador = new GridMovieAdapter(cache.getDiscover(),this.getActivity());
         gridView.setAdapter(adaptador);
 
 

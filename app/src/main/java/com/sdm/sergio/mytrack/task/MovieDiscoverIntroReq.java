@@ -2,15 +2,11 @@ package com.sdm.sergio.mytrack.task;
 
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
-import com.sdm.sergio.mytrack.R;
-import com.sdm.sergio.mytrack.fragment.FragmentNotFound;
-import com.sdm.sergio.mytrack.fragment.FragmentSearchGrid;
 import com.sdm.sergio.mytrack.model.InfoMovie;
 import com.sdm.sergio.mytrack.model.TMDBMovie;
 import com.sdm.sergio.mytrack.util.Storage;
@@ -22,28 +18,26 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-public class MovieSearchReq extends AsyncTask<Void,Void,Void> {
+/**
+ * Created by Sergio on 27/04/2017.
+ */
+public class MovieDiscoverIntroReq extends AsyncTask<Void,Void,Void> {
 
     private Uri.Builder builder = new Uri.Builder();
-    private String res;
-    FragmentTransaction transaction;
     private InfoMovie[] imovie;
-    String query;
 
-    public MovieSearchReq(FragmentTransaction transaction,String query) {
-        super();
-        this.transaction = transaction;
-        this.query = query;
-    }@Override
+    public MovieDiscoverIntroReq() {
+    }
+
+    @Override
     protected Void doInBackground(Void... params) {
         try {
             //Construimos la URL de peticion a Trakt.tv
             Uri.Builder builder = new Uri.Builder();
             builder.scheme("https");
             builder.authority("api.trakt.tv");
-            builder.appendPath("search");
-            builder.appendPath("movie");
-            builder.appendQueryParameter("query", query);
+            builder.appendPath("movies");
+            builder.appendPath("boxoffice");
             URL url = new URL(builder.build().toString());
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
@@ -109,7 +103,7 @@ public class MovieSearchReq extends AsyncTask<Void,Void,Void> {
                         }
 
                     }}
-                Storage.getInstance().setSearch(imovie);
+                Storage.getInstance().setDiscover(imovie);
 
                 connection.disconnect();}
         }catch (JsonParseException e) {
@@ -127,16 +121,6 @@ public class MovieSearchReq extends AsyncTask<Void,Void,Void> {
     @Override
     protected void onPostExecute(Void params) {
         super.onPostExecute(params);
-        if(imovie.length ==0) {
-            FragmentNotFound context = FragmentNotFound.newInstance();
-            transaction.replace(R.id.genre_container,context);
-            transaction.commit();}
-        else{
-        FragmentSearchGrid context = FragmentSearchGrid.newInstance();
-            transaction.replace(R.id.genre_container,context);
-            transaction.commit();}
-
-
 
     }
 }

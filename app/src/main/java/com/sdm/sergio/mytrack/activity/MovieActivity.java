@@ -202,7 +202,7 @@ public class MovieActivity extends AppCompatActivity {
                     if(!movie.getVideos().getResults().isEmpty()){
 
                         //Cojo url del video
-                        String videoUrl = "https://www.youtube.com/watch?v="+movie.getVideos().getResults().get(1).getKey();
+                        String videoUrl = "https://www.youtube.com/watch?v="+movie.getVideos().getResults().get(0).getKey();
 
                         //Lanzar el intent para que se abra en youtube o internet
                         String action = Intent.ACTION_VIEW;

@@ -40,7 +40,8 @@ public class FragmentSearchGrid extends android.support.v4.app.Fragment{
 
         View v = inflater.inflate(R.layout.f_trending, container, false);
         gridView = (GridView) v.findViewById(R.id.grid);
-        InfoMovie[] imovie = Storage.getInstance().getSearch();
+        Storage cache = Storage.getInstance();
+        InfoMovie[] imovie = cache.getSearch();
         adaptador = new GridMovieAdapter(imovie,this.getActivity());
         gridView.setAdapter(adaptador);
 
