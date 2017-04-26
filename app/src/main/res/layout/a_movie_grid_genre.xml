@@ -5,14 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-    <GridView
-        android:id="@+id/grid"
+    <FrameLayout
+        android:id="@+id/genre_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:columnWidth="120dp"
-        android:horizontalSpacing="0.5dp"
-        android:numColumns="3"
-        android:verticalSpacing="0.5dp" />
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
 </LinearLayout>

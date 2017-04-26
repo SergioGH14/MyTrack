@@ -27,10 +27,8 @@ public class GenreListAdapter extends ArrayAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        LayoutInflater layoutInflater = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View viewRow = layoutInflater.inflate(R.layout.i_genres, null,
-                true);
+        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View viewRow = layoutInflater.inflate(R.layout.i_genres, null, true);
         TextView mtextView = (TextView) viewRow.findViewById(R.id.text_view);
         ImageView mimageView = (ImageView) viewRow.findViewById(R.id.image_view);
         mtextView.setText(androidListViewStrings[i]);

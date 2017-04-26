@@ -1,28 +1,20 @@
 package com.sdm.sergio.mytrack.activity;
 
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import com.sdm.sergio.mytrack.R;
-import com.sdm.sergio.mytrack.adapter.GenreListAdapter;
 import com.sdm.sergio.mytrack.adapter.GridMovieAdapter;
-import com.sdm.sergio.mytrack.fragment.FragmentGenres;
-import com.sdm.sergio.mytrack.model.Movie;
-import com.sdm.sergio.mytrack.util.Storage;
+import com.sdm.sergio.mytrack.fragment.FragmentSpinner;
+import com.sdm.sergio.mytrack.task.MovieGenresReq;
 
 public class MovieGridGenreActivity extends AppCompatActivity {
 
@@ -32,7 +24,16 @@ public class MovieGridGenreActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String id = getIntent().getStringExtra("generos");
         setContentView(R.layout.a_movie_grid_genre);
+        android.support.v4.app.Fragment context = FragmentSpinner.newInstance();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.genre_container,context);
+        transaction.commit();
+        transaction = getSupportFragmentManager().beginTransaction();
+        MovieGenresReq task = new MovieGenresReq(transaction,id);
+        task.execute();
+
 
 
         //Flecha de Back de la action Bar
@@ -67,29 +68,6 @@ public class MovieGridGenreActivity extends AppCompatActivity {
     {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_action_bar, menu);
-
-        gridView = (GridView) findViewById(R.id.grid);
-        adaptador = new GridMovieAdapter(Storage.getInstance().getDiscover(),this);
-        GridView gridView = (GridView) findViewById(R.id.grid);
-        gridView.setAdapter(adaptador);
-
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-
-                //Objeto con la Información de la película, se cambiará por lo que tengamos de Trakt
-                Movie item = (Movie) parent.getItemAtPosition(position);
-
-                //Pasar el título y la imagen a la pantalla de película
-                Intent intent = new Intent(getApplicationContext(), MovieActivity.class);
-                intent.putExtra("id", item.getIds().getTmdb().toString());
-
-
-                startActivity(intent);
-
-            }
-        });
-
-
 
         // Item Buscar Película
         final MenuItem searchItem = menu.findItem(R.id.action_search);

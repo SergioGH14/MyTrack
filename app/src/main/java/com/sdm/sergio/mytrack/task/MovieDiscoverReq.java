@@ -9,14 +9,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
 import com.sdm.sergio.mytrack.R;
-import com.sdm.sergio.mytrack.activity.ActBottomNav;
 import com.sdm.sergio.mytrack.fragment.FragmentTrending;
 import com.sdm.sergio.mytrack.model.InfoMovie;
 import com.sdm.sergio.mytrack.model.TMDBMovie;
 import com.sdm.sergio.mytrack.util.Storage;
-import com.sdm.sergio.mytrack.activity.ActBottomNav;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -43,6 +40,7 @@ public class MovieDiscoverReq extends AsyncTask<Void,Void,Void> {
     @Override
     protected Void doInBackground(Void... params) {
         try {
+            //Construimos la URL de peticion a Trakt.tv
             Uri.Builder builder = new Uri.Builder();
             builder.scheme("https");
             builder.authority("api.trakt.tv");
@@ -57,17 +55,18 @@ public class MovieDiscoverReq extends AsyncTask<Void,Void,Void> {
             connection.setRequestProperty("trakt-api-key","7fec15e4e6cfa7baa421d55c67242a5617078149da96c4126d219d1e260d6ac5");
             //Aun no tenemos el token
             //connection.setRequestProperty("Authorization","USER_TOKEN");
-
+            //Comprobamos que la conexion sea correcta
             if(connection.getResponseCode() == HttpURLConnection.HTTP_OK){
+                //recibimos los datos de la conexion
                 InputStreamReader reader = new InputStreamReader(connection.getInputStream());
-                BufferedReader br = new BufferedReader(reader);
+                //Creamos el Gson builder
                 GsonBuilder gbuilder = new GsonBuilder();
                 Gson gson = gbuilder.create();
+                //Utilizamos el Gson builder para transformar los datos del inputstream a los de la calse InforMovie.class
                 imovie= gson.fromJson(reader,InfoMovie[].class);
 
-
-
                 //**************************Informacion ampliada********************************************
+
                 for (int i = 0; i < imovie.length; i++) {
                     TMDBMovie fullmovie = Storage.getInstance().extractFullMovie(imovie[i].getMovie().getIds().getTmdb().toString());
                     if(fullmovie!=null){
@@ -91,7 +90,6 @@ public class MovieDiscoverReq extends AsyncTask<Void,Void,Void> {
                         Log.e("HttpResponse", "" + connection2.getResponseCode());
                         if (connection2.getResponseCode() == HttpURLConnection.HTTP_OK) {
                             InputStreamReader reader2 = new InputStreamReader(connection2.getInputStream());
-                            BufferedReader br2 = new BufferedReader(reader);
                             GsonBuilder gbuilder2 = new GsonBuilder();
                             Gson gson2 = gbuilder.create();
                             fullmovie = gson2.fromJson(reader2, TMDBMovie.class);
@@ -133,6 +131,7 @@ public class MovieDiscoverReq extends AsyncTask<Void,Void,Void> {
          */
 
         FragmentTrending context = FragmentTrending.newInstance();
+
         transaction.replace(R.id.contentContainer,context);
         transaction.commit();
 

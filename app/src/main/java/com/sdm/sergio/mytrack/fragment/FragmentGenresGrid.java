@@ -10,28 +10,24 @@ import android.widget.GridView;
 
 import com.sdm.sergio.mytrack.R;
 import com.sdm.sergio.mytrack.activity.MovieActivity;
-import com.sdm.sergio.mytrack.adapter.GridMovieAdapter;
+import com.sdm.sergio.mytrack.adapter.GenreGridAdapter;
 import com.sdm.sergio.mytrack.model.Movie;
 import com.sdm.sergio.mytrack.util.Storage;
 
-/*
- * Created by Sergio on 19/04/2017.
+/**
+ * Created by Sergio on 24/04/2017.
  */
 
-public class FragmentTrending extends android.support.v4.app.Fragment{
+public class FragmentGenresGrid extends android.support.v4.app.Fragment {
     private GridView gridView;
-    private GridMovieAdapter adaptador;
-
-    public static FragmentTrending newInstance(){
-        return new FragmentTrending();
-
+    private GenreGridAdapter adaptador;
+    public static FragmentGenresGrid newInstance() {
+        return new FragmentGenresGrid();
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -39,12 +35,13 @@ public class FragmentTrending extends android.support.v4.app.Fragment{
 
         View v = inflater.inflate(R.layout.f_trending, container, false);
         gridView = (GridView) v.findViewById(R.id.grid);
-        adaptador = new GridMovieAdapter(Storage.getInstance().getDiscover(),this.getActivity());
+        adaptador = new GenreGridAdapter(Storage.getInstance().getGenre().getGenreMovies(),this.getActivity());
+        GridView gridView = (GridView) v.findViewById(R.id.grid);
         gridView.setAdapter(adaptador);
 
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
                 //Objeto con la Información de la película, se cambiará por lo que tengamos de Trakt
                 Movie item = (Movie) parent.getItemAtPosition(position);
@@ -61,5 +58,4 @@ public class FragmentTrending extends android.support.v4.app.Fragment{
 
         return v;
     }
-    }
-
+}

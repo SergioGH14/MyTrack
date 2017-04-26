@@ -1,12 +1,11 @@
 package com.sdm.sergio.mytrack.util;
 
 import android.content.Context;
-import android.util.Log;
 
+import com.sdm.sergio.mytrack.model.GenreMovieContainer;
 import com.sdm.sergio.mytrack.model.InfoMovie;
 import com.sdm.sergio.mytrack.model.TMDBMovie;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -19,21 +18,34 @@ import java.util.HashMap;
 public class Storage {
     private static Storage instance;
     private InfoMovie[] discover;
+    private GenreMovieContainer genre;
     private Context context;
     private HashMap<String,TMDBMovie> fullmovies = new HashMap<String, TMDBMovie>();
+    private HashMap<String,String> genres = new HashMap<String, String>();
 
 
     private Storage(Context context){this.context=context;}
 
-    public static void StorageInit(Context context){instance=  new Storage(context);}
+    public static void StorageInit(Context context){
+        instance=  new Storage(context);
+    }
 
     public static Storage getInstance(){
          return instance;
     }
 
+    public GenreMovieContainer getGenre() {
+        return genre;
+    }
+
+    public void setGenre(GenreMovieContainer genre) {
+        this.genre = genre;
+    }
+
     public InfoMovie[] getDiscover(){
         return discover;
     }
+
     public void setDiscover(InfoMovie[] discover) {
         this.discover = discover;
     }
