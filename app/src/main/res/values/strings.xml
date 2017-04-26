@@ -1,6 +1,6 @@
 <resources>
     <!--Activity-->
-    <string name="app_name">MyTrack</string>
+    <string name="app_name">Hype</string>
     <string name="title_lists">Categories</string>
     <string name="title_discover">Films</string>
     <string name="title_profile">Profile</string>
