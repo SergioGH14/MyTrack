@@ -97,5 +97,7 @@
     <string name="bienvenida_intro">Bienvenido a InfoMovies </string>
     <string name="datos_intro">Tomate un momento para responder unas preguntas, por favor</string>
     <string name="q_nombre_intro">¿Cuál será tu nombre de usuario?</string>
+    <string name="title_bar_search">"Resultados de : "</string>
+    <string name="not_found">Lo sentimos, desafortunadamente\n no hemos encontrado ninguna coincidencia\n con tu búsqueda</string>
 
 </resources>

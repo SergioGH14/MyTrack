@@ -12,7 +12,7 @@ public class TMDBMovie {
 
     @SerializedName("adult")
     @Expose
-    private boolean adult;
+    private Boolean adult;
     @SerializedName("backdrop_path")
     @Expose
     private String backdropPath;
@@ -21,7 +21,7 @@ public class TMDBMovie {
     private BelongsToCollection belongsToCollection;
     @SerializedName("budget")
     @Expose
-    private int budget;
+    private Integer budget;
     @SerializedName("genres")
     @Expose
     private List<Genre> genres = null;
@@ -30,7 +30,7 @@ public class TMDBMovie {
     private String homepage;
     @SerializedName("id")
     @Expose
-    private int id;
+    private Integer id;
     @SerializedName("imdb_id")
     @Expose
     private String imdbId;
@@ -45,7 +45,7 @@ public class TMDBMovie {
     private String overview;
     @SerializedName("popularity")
     @Expose
-    private double popularity;
+    private Double popularity;
     @SerializedName("poster_path")
     @Expose
     private String posterPath;
@@ -60,10 +60,10 @@ public class TMDBMovie {
     private String releaseDate;
     @SerializedName("revenue")
     @Expose
-    private int revenue;
+    private Integer revenue;
     @SerializedName("runtime")
     @Expose
-    private int runtime;
+    private Integer runtime;
     @SerializedName("spoken_languages")
     @Expose
     private List<SpokenLanguage> spokenLanguages = null;
@@ -78,20 +78,27 @@ public class TMDBMovie {
     private String title;
     @SerializedName("video")
     @Expose
-    private boolean video;
+    private Boolean video;
     @SerializedName("vote_average")
     @Expose
-    private double voteAverage;
+    private Double voteAverage;
     @SerializedName("vote_count")
     @Expose
-    private int voteCount;
+    private Integer voteCount;
+    @SerializedName("videos")
+    @Expose
+    private Videos videos;
 
-    public boolean isAdult() {
+    public Boolean getAdult() {
         return adult;
     }
 
-    public void setAdult(boolean adult) {
+    public void setAdult(Boolean adult) {
         this.adult = adult;
+    }
+
+    public boolean isAdult(){
+        return adult;
     }
 
     public String getBackdropPath() {
@@ -110,11 +117,11 @@ public class TMDBMovie {
         this.belongsToCollection = belongsToCollection;
     }
 
-    public int getBudget() {
+    public Integer getBudget() {
         return budget;
     }
 
-    public void setBudget(int budget) {
+    public void setBudget(Integer budget) {
         this.budget = budget;
     }
 
@@ -134,11 +141,11 @@ public class TMDBMovie {
         this.homepage = homepage;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -174,11 +181,11 @@ public class TMDBMovie {
         this.overview = overview;
     }
 
-    public double getPopularity() {
+    public Double getPopularity() {
         return popularity;
     }
 
-    public void setPopularity(double popularity) {
+    public void setPopularity(Double popularity) {
         this.popularity = popularity;
     }
 
@@ -214,19 +221,19 @@ public class TMDBMovie {
         this.releaseDate = releaseDate;
     }
 
-    public int getRevenue() {
+    public Integer getRevenue() {
         return revenue;
     }
 
-    public void setRevenue(int revenue) {
+    public void setRevenue(Integer revenue) {
         this.revenue = revenue;
     }
 
-    public int getRuntime() {
+    public Integer getRuntime() {
         return runtime;
     }
 
-    public void setRuntime(int runtime) {
+    public void setRuntime(Integer runtime) {
         this.runtime = runtime;
     }
 
@@ -262,28 +269,39 @@ public class TMDBMovie {
         this.title = title;
     }
 
-    public boolean isVideo() {
+    public Boolean getVideo() {
         return video;
     }
 
-    public void setVideo(boolean video) {
+    public void setVideo(Boolean video) {
         this.video = video;
     }
 
-    public double getVoteAverage() {
+    public boolean isVideo(){
+        return video;
+    }
+    public Double getVoteAverage() {
         return voteAverage;
     }
 
-    public void setVoteAverage(double voteAverage) {
+    public void setVoteAverage(Double voteAverage) {
         this.voteAverage = voteAverage;
     }
 
-    public int getVoteCount() {
+    public Integer getVoteCount() {
         return voteCount;
     }
 
-    public void setVoteCount(int voteCount) {
+    public void setVoteCount(Integer voteCount) {
         this.voteCount = voteCount;
+    }
+
+    public Videos getVideos() {
+        return videos;
+    }
+
+    public void setVideos(Videos videos) {
+        this.videos = videos;
     }
 
 }

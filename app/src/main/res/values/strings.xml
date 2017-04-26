@@ -118,7 +118,10 @@
     <string name="id_western">37</string>
     <string name="GET">GET</string>
     <string name="https">https</string>
-
+    <!-- Search Activity-->
+    <string name="title_bar_search">Results of : </string>
+    <!-- Not found-->
+    <string name="not_found">Sorry, unfortunately we can´t find any film\nwith this title or similar</string>
     <!-- App Intro -->
     <string name="app_intro">Intro</string>
     <string name="info_intro">The best android app to get movie info</string>

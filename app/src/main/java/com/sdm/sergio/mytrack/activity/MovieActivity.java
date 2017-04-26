@@ -199,14 +199,14 @@ public class MovieActivity extends AppCompatActivity {
                 case R.id.fabtrailer:
 
                     //Abrir trailer en youtube
-                    if(movie.isVideo()){
+                    if(!movie.getVideos().getResults().isEmpty()){
 
                         //Cojo url del video
-                        String videoUrl = "https://www.youtube.com/watch?v=FbvPuv6Amjg";
+                        String videoUrl = "https://www.youtube.com/watch?v="+movie.getVideos().getResults().get(1).getKey();
 
                         //Lanzar el intent para que se abra en youtube o internet
                         String action = Intent.ACTION_VIEW;
-                        Uri uri = Uri.parse("https://www.youtube.com/watch?v=FbvPuv6Amjg");
+                        Uri uri = Uri.parse(videoUrl);
                         Intent videoIntent = new Intent(action, uri);
                         startActivity(videoIntent);
                         

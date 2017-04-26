@@ -1,10 +1,8 @@
 package com.sdm.sergio.mytrack.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.MenuItemCompat;
@@ -147,8 +145,11 @@ public class ActBottomNav extends AppCompatActivity{
                 searchView.setIconified(true);
 
                 //Mostrar películas
+                Intent intent = new Intent(getApplicationContext(),SearchActivity.class);
+                intent.putExtra("query", query);
 
 
+                startActivity(intent);
                 return true;
             }
 

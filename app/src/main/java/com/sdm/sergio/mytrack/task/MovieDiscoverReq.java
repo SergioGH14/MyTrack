@@ -81,6 +81,8 @@ public class MovieDiscoverReq extends AsyncTask<Void,Void,Void> {
                     builder2.appendPath("movie");
                     builder2.appendPath(imovie[i].getMovie().getIds().getTmdb().toString());
                     builder2.appendQueryParameter("api_key", "c4127f942963e453b0d043dc2d4510ea");
+                    builder2.appendQueryParameter("language", "es-ES");
+                    builder2.appendQueryParameter("append_to_response", "videos");
                     try {
                         URL url2 = new URL(builder2.build().toString());
                         HttpURLConnection connection2 = (HttpURLConnection) url2.openConnection();
@@ -90,11 +92,12 @@ public class MovieDiscoverReq extends AsyncTask<Void,Void,Void> {
                         Log.e("HttpResponse", "" + connection2.getResponseCode());
                         if (connection2.getResponseCode() == HttpURLConnection.HTTP_OK) {
                             InputStreamReader reader2 = new InputStreamReader(connection2.getInputStream());
+                            InputStreamReader persistence =reader2;
                             GsonBuilder gbuilder2 = new GsonBuilder();
                             Gson gson2 = gbuilder.create();
                             fullmovie = gson2.fromJson(reader2, TMDBMovie.class);
                             imovie[i].getMovie().setFullmovie(fullmovie);
-                            Storage.getInstance().addFullMovie(""+fullmovie.getId(),fullmovie,reader2);
+                            Storage.getInstance().addFullMovie(""+fullmovie.getId(),fullmovie,persistence);
                             connection.disconnect();
                         }
                     } catch (JsonParseException e) {

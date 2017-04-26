@@ -50,6 +50,8 @@ public class MovieGenresReq extends AsyncTask <Void,Void,Void>{
             builder.appendPath(id);
             builder.appendPath("movies");
             builder.appendQueryParameter("api_key", "c4127f942963e453b0d043dc2d4510ea");
+            builder.appendQueryParameter("language", "es-ES");
+            builder.appendQueryParameter("append_to_response", "videos");
             URL url = new URL(builder.build().toString());
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
