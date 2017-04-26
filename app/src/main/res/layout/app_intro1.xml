@@ -5,26 +5,26 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_weight="10"
-    android:background="#0385a3"
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center"
         android:layout_weight="3"
         android:gravity="center"
         android:paddingLeft="32dp"
         android:paddingRight="29dp"
-        android:text="@string/bienvenida_intro"
-        android:textColor="#ffffff"
+        android:text="Bienvenido a Hype"
+        android:textColor="@android:color/white"
         android:textSize="27sp"
         android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5"
+        android:layout_height="wrap_content"
+        android:layout_weight="8.45"
         android:gravity="center"
         android:orientation="vertical"
         android:weightSum="1">
@@ -33,15 +33,16 @@
 
         <ImageView
             android:layout_width="270dp"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_gravity="center"
+            android:layout_weight="1.00"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:src="@drawable/ic_moviet"
-            android:layout_weight="1.15" />
+            android:src="@drawable/app_intro1" />
     </LinearLayout>
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_gravity="center"
@@ -49,10 +50,10 @@
         android:gravity="center"
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
+        android:text="La mejor App de películas en cartelera"
         android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="16sp"
-        tools:text="@string/info_intro" />
+        android:textColor="@android:color/white"
+        android:textSize="26sp" />
 
     <TextView
         android:layout_width="fill_parent"

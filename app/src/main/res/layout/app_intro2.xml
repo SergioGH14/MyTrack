@@ -5,56 +5,55 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_weight="10"
-    android:background="#03a373"
+    android:background="#fd6565"
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center"
         android:layout_weight="3"
         android:gravity="center"
         android:paddingLeft="32dp"
         android:paddingRight="29dp"
-        android:text="@string/datos_intro"
-        android:textColor="#ffffff"
+        android:text="Información Detallada"
+        android:textColor="@android:color/white"
         android:textSize="27sp"
         android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="30dp"
-        android:layout_weight="5"
+        android:layout_height="wrap_content"
+        android:layout_weight="8.45"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="1">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        //image link from drawable folder
+
+        <ImageView
+            android:layout_width="270dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
-            android:layout_weight="0.48"
-            android:gravity="center"
-            android:paddingLeft="32dp"
-            android:paddingRight="29dp"
-            android:textColor="#ffffff"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:text="@string/q_nombre_intro" />
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="200dp"
-            android:layout_weight="0.85"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="textPersonName"
-            android:textColor="@android:color/white" />
-
+            android:layout_weight="1.00"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:src="@drawable/app_intro3" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="Fácil e intuitiva"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="26sp" />
 
     <TextView
         android:layout_width="fill_parent"

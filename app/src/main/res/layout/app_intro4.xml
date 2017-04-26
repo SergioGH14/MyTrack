@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:layout_weight="10"
-    android:background="@android:color/holo_orange_light"
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical">
 
     <TextView
@@ -16,7 +16,7 @@
         android:gravity="center"
         android:paddingLeft="32dp"
         android:paddingRight="29dp"
-        android:text="Filtrado y Búsqueda"
+        android:text="¡ Comienza a Hypear !"
         android:textColor="@android:color/white"
         android:textSize="27sp"
         android:textStyle="bold" />
@@ -30,31 +30,17 @@
         android:weightSum="1">
 
         //image link from drawable folder
-
         <ImageView
             android:layout_width="270dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:layout_weight="1.00"
+            android:layout_weight="1.60"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:src="@drawable/app_intro2" />
+            android:src="@drawable/app_intro4" />
+
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="3"
-        android:gravity="center"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        android:text="Gran variedad de géneros"
-        android:textAlignment="center"
-        android:textColor="@android:color/white"
-        android:textSize="26sp" />
 
     <TextView
         android:layout_width="fill_parent"

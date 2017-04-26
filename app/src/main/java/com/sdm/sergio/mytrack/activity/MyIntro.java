@@ -19,6 +19,7 @@ public class MyIntro extends AppIntro {
         addSlide(AppIntroSampleSlider.newInstance(R.layout.app_intro1));
         addSlide(AppIntroSampleSlider.newInstance(R.layout.app_intro2));
         addSlide(AppIntroSampleSlider.newInstance(R.layout.app_intro3));
+        addSlide(AppIntroSampleSlider.newInstance(R.layout.app_intro4));
 
         // Show and Hide Skip and Done buttons
         showStatusBar(false);
@@ -36,8 +37,6 @@ public class MyIntro extends AppIntro {
     @Override
     public void onSkipPressed() {
         // Do something here when users click or tap on Skip button.
-        Toast.makeText(getApplicationContext(),
-                getString(R.string.no_trailer), Toast.LENGTH_SHORT).show();
         Intent i = new Intent(getApplicationContext(), ActBottomNav.class);
         startActivity(i);
     }
